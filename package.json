@@ -1,12 +1,39 @@
 {
   "author": "AlphaLabs",
+  "contributors": [
+    {
+      "name": "Heisig Philipp",
+      "email": "philipp.heisig@mailbox.tu-dresden.de"
+    },
+    {
+      "name": "Kilian Költzsch",
+      "email": "kilian.költzsch@mailbox.tu-dresden.de"
+    },
+    {
+      "name": "Robert Baruck",
+      "email": "robert.baruck@gmail.com"
+    },
+    {
+      "name": "Stephan Wilde",
+      "email": "stephan.wilde@mailbox.tu-dresden.de"
+    },
+    {
+      "name": "Alexander Drangmeister",
+      "email": "alexander.drangmeister@mailbox.tu-dresden.de"
+    },
+    {
+      "name": "Dennis Esders",
+      "email": "dennis.esders@mailbox.tu-dresden.de"
+    }
+  ],
   "name": "The-Circle-of-Waste",
   "description": "HTML5 serious game",
   "version": "0.0.1",
-  "homepage": "",
+  "homepage": "https://github.com/alphalbs/thecircleofwaste",
+  "license": "MIT License",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/alphalbs/thecircleofwaste"
   },
   "scripts": {
     "start": "brunch watch --server",
@@ -20,7 +47,8 @@
     "handlebars-brunch": ">= 1.0 < 1.8",
     "uglify-js-brunch": ">= 1.0 < 1.8",
     "clean-css-brunch": ">= 1.0 < 1.8",
-    "auto-reload-brunch": ">= 1.0 < 1.8"
+    "auto-reload-brunch": ">= 1.0 < 1.8",
+    "coffeelint-brunch": "latest"
   },
   "devDependencies": {}
 }
