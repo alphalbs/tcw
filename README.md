@@ -17,9 +17,9 @@ Ein Lernspiel zum Thema Mülltrennung und dem Kreislauf des Mülls im Rahmes ein
 3. Run `bash -e script/bootstrap` in git root directory
 
 #### known issues
-*  ```/usr/bin/env: node: No such file or directory```
-  ** happens often when installing with a packetmanager
-  ** run ```sudo ln -s /usr/bin/nodejs /usr/bin/node```
++  ```/usr/bin/env: node: No such file or directory```
+	+ often happens when installing with a packetmanager
+	+ run ```sudo ln -s /usr/bin/nodejs /usr/bin/node```
 
 ### Run brunch
 
