@@ -9,7 +9,8 @@
     "jquery": "~2.0.2",
     "normalize-css": "~2.1.2",
     "h5bp-helpers": "~0.1.0",
-    "phaser": "~2.0.2"
+    "phaser": "~2.0.2",
+    "font-awesome": "latest"
   },
   "overrides": {
     "backbone": {
