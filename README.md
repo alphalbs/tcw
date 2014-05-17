@@ -30,9 +30,3 @@ In the project root dir run `npm start`.
 + runs app at localhost:3333
 
 Open Browser at `localhost:3333`
-
-
-
-## License
-
-MIT License
