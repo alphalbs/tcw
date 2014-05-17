@@ -10,7 +10,7 @@ Ein Lernspiel zum Thema Mülltrennung und dem Kreislauf des Mülls im Rahmes ein
 - [node](http://nodejs.org/)
 
 ### Setup
-1. ```git clone https://github.com/alphalbs/thecircleofwaste.git```
+1. ```git clone https://github.com/alphalbs/tcw.git```
 2. Run `bash -e script/bootstrap`
 
 ### Run brunch
