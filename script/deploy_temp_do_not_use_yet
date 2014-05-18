@@ -15,5 +15,5 @@ cp -rv ../doc .
 git add --all
 git commit -m 'Update site'
 git push
-git checkout develop
+git checkout master
 git stash pop
