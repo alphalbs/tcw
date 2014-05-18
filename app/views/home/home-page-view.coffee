@@ -1,4 +1,6 @@
 View = require 'views/base/view'
+mediator  = Chaplin.mediator
+
 
 module.exports = class HomePageView extends View
   autoRender: true
