@@ -12,6 +12,7 @@ module.exports = class Application extends Chaplin.Application
   initMediator: ->
     # Add additional application-specific properties and methods
     mediator.currentView = null
+    mediator.sound = true
 
     # Seal the mediator
     super
