@@ -18,8 +18,8 @@ Ein Lernspiel zum Thema Mülltrennung und dem Kreislauf des Mülls im Rahmes ein
 
 #### known issues
 +  ```/usr/bin/env: node: No such file or directory```
-	+ often happens when installing with a packetmanager
-	+ run ```sudo ln -s /usr/bin/nodejs /usr/bin/node```
+  + often happens when installing with a packetmanager
+  + run ```sudo ln -s /usr/bin/nodejs /usr/bin/node```
 
 ### Run brunch
 

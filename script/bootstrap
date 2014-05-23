@@ -10,13 +10,13 @@ hash brunch 2>/dev/null || { echo >&2 "install brunch (http://brunch.io/)"; exit
 hash bower  2>/dev/null || { echo >&2 "install bower (http://bower.io/)";   exit 1; }
 
 if [[ -e .git ]]; then
-  echo 'install npm packages'
+	echo 'install npm packages'
     npm install
     echo 'install bower packages'
     bower install
 else
-  echo 'Usage: `script/bootstrap` from git root'
-  exit 1
+	echo 'Usage: `script/bootstrap` from git root'
+	exit 1
 fi
 
 exit 0

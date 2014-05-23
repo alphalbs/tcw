@@ -1,13 +1,37 @@
 exports.config =
-  # See http://brunch.io/#documentation for docs.
   files:
     javascripts:
       joinTo:
-        'javascripts/app.js': /^app/
-        'javascripts/vendor.js': /^(?!app)/
+        'js/app.js': /^(app|core)/
+        'js/vendor.js': /^(vendor|bower_components)/
+
+      pluginHelpers: 'js/app.js'
 
     stylesheets:
-      joinTo: 'stylesheets/app.css'
+      joinTo:
+        'css/app.css': /^app/
+        'css/vendor.css': /^(vendor|bower_components)/
 
     templates:
-      joinTo: 'javascripts/app.js'
+      joinTo: 'js/app.js'
+
+  plugins:
+    autoReload:
+      enabled:
+        js: on
+        css: on
+        assets: off
+
+    imageoptimizer:
+      path: 'images'
+      smushit: no
+
+    coffeelint:
+      pattern: /^(app|core)\/.*\.coffee$/
+
+      options:
+        max_line_length:
+          level: "ignore"
+
+  conventions:
+    assets: /(assets|vendor\/assets|font)/

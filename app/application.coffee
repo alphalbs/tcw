@@ -16,5 +16,3 @@ module.exports = class Application extends Chaplin.Application
 
     # Seal the mediator
     super
-
-
