@@ -8,10 +8,11 @@
     "bower_components"
   ],
   "dependencies": {
-    "chaplin": "~1.0.0",
-    "console-polyfill": "~0.1.0",
     "lodash": "~2",
     "jquery": "~2",
+    "backbone": "~1",
+    "chaplin": "~1.0.0",
+    "console-polyfill": "~0.1.0",
     "normalize-css": "~2",
     "h5bp-helpers": "~0.1",
     "phaser": "~2.0.2",
@@ -21,11 +22,11 @@
   },
   "overrides": {
     "backbone": {
-      "main": "backbone.js",
       "dependencies": {
         "lodash": "*",
         "jquery": "*"
-      }
+      },
+      "main": "backbone.js"
     },
     "font-awesome": {
       "main": [
