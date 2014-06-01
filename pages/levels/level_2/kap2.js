@@ -1,5 +1,5 @@
 // Initialize Phaser
-window.parent.global.game = new Phaser.Game(800, 600, Phaser.AUTO, 'game_div', {preload: preload, create: create, update: update});
+window.parent.global.game = new Phaser.Game(800, 600, Phaser.AUTO, '', {preload: preload, create: create, update: update});
 var block, trash, right, wrong, counter_wrong, counter_right, trashtype, act_tonne;
 
 // Load assets
