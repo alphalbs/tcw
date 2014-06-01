@@ -53,14 +53,14 @@ body {
   background-size: cover;
 }
 
-.header-container 
+.header-container
 {
    width: 1280px;
   margin: auto;
     height:223px;
 }
 
-#footer 
+#footer
 {
   height: 64px;
   width: 1280px;
@@ -96,7 +96,7 @@ body {
 }
 
 
-.page-container 
+.page-container
 {
   background-color: black;
   background: url(../images/test.jpg) no-repeat;
@@ -113,4 +113,13 @@ iframe {
   margin-top: 50px;
 }
 
+.button {
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 /*# sourceMappingURL=app.css.map*/
