@@ -9,49 +9,51 @@
 
     <script type="text/javascript">
 
+
     window.onload = function() {
 
-        var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create });
+        window.parent.global.game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create });
+        //var game = window.parent.global.game;
 
         function preload () {
 
-            game.load.image('imgCh1Background', 'assets/chap1_background.jpg');
+            window.parent.global.game.load.image('imgCh1Background', 'assets/chap1_background.jpg');
 
-            game.load.image('imgSascha', 'assets/sascha.png');
-            game.load.image('imgEmmanuel', 'assets/emmanuel.png');
-            game.load.image('imgJenny', 'assets/jenny.png');
-            game.load.image('imgMarius', 'assets/marius.png');
-            game.load.image('imgMarlene', 'assets/marlene.png');
+            window.parent.global.game.load.image('imgSascha', 'assets/sascha.png');
+            window.parent.global.game.load.image('imgEmmanuel', 'assets/emmanuel.png');
+            window.parent.global.game.load.image('imgJenny', 'assets/jenny.png');
+            window.parent.global.game.load.image('imgMarius', 'assets/marius.png');
+            window.parent.global.game.load.image('imgMarlene', 'assets/marlene.png');
 
-            game.load.image('imgSaschaHead', 'assets/saschaHead.png');
-            game.load.image('imgEmmanuelHead', 'assets/emmanuelHead.png');
-            game.load.image('imgJennyHead', 'assets/jennyHead.png');
-            game.load.image('imgMariusHead', 'assets/mariusHead.png');
-            game.load.image('imgMarleneHead', 'assets/marleneHead.png');
+            window.parent.global.game.load.image('imgSaschaHead', 'assets/saschaHead.png');
+            window.parent.global.game.load.image('imgEmmanuelHead', 'assets/emmanuelHead.png');
+            window.parent.global.game.load.image('imgJennyHead', 'assets/jennyHead.png');
+            window.parent.global.game.load.image('imgMariusHead', 'assets/mariusHead.png');
+            window.parent.global.game.load.image('imgMarleneHead', 'assets/marleneHead.png');
 
-            game.load.image('imgTable', 'assets/table.png');
+            window.parent.global.game.load.image('imgTable', 'assets/table.png');
 
-            game.load.image('bubble1', 'assets/speach_bubble1.png');
-			game.load.image('bubble2', 'assets/speach_bubble2.png');
+            window.parent.global.game.load.image('bubble1', 'assets/speach_bubble1.png');
+			window.parent.global.game.load.image('bubble2', 'assets/speach_bubble2.png');
 
-            game.load.image('imgStartAllSmall', 'assets/alle.png');
-			game.load.image('imgStartAsk', 'assets/ask.png');
-			game.load.image('imgStartTrophy', 'assets/trophy.png');
+            window.parent.global.game.load.image('imgStartAllSmall', 'assets/alle.png');
+			window.parent.global.game.load.image('imgStartAsk', 'assets/ask.png');
+			window.parent.global.game.load.image('imgStartTrophy', 'assets/trophy.png');
 
-			game.load.image('imgSmallTrophy', 'assets/trophy_small.png');
-			game.load.image('imgSmallTimer', 'assets/timer.png');
-			game.load.image('imgQuestion', 'assets/question.png');
+			window.parent.global.game.load.image('imgSmallTrophy', 'assets/trophy_small.png');
+			window.parent.global.game.load.image('imgSmallTimer', 'assets/timer.png');
+			window.parent.global.game.load.image('imgQuestion', 'assets/question.png');
 
-			game.load.spritesheet('buttonStart', 'assets/start.png',87,0);
-            game.load.spritesheet('button1', 'assets/arrow_next.png',71,0);
+			window.parent.global.game.load.spritesheet('buttonStart', 'assets/start.png',87,0);
+            window.parent.global.game.load.spritesheet('button1', 'assets/arrow_next.png',71,0);
 
-            game.load.spritesheet('smallAnswerButton', 'assets/button_small_hover.png',60,0);
-			game.load.spritesheet('bigAnswerButton', 'assets/button_big_hover.png',250,0);
+            window.parent.global.game.load.spritesheet('smallAnswerButton', 'assets/button_small_hover.png',60,0);
+			window.parent.global.game.load.spritesheet('bigAnswerButton', 'assets/button_big_hover.png',250,0);
 
-			game.load.audio('clapping', 'assets/clapping.ogg');
-			game.load.audio('falseError', 'assets/falseError.ogg');
-			game.load.audio('pageTurn', 'assets/pageTurn.ogg');
-			game.load.audio('knock', 'assets/knock.ogg');
+			window.parent.global.game.load.audio('clapping', 'assets/clapping.ogg');
+			window.parent.global.game.load.audio('falseError', 'assets/falseError.ogg');
+			window.parent.global.game.load.audio('pageTurn', 'assets/pageTurn.ogg');
+			window.parent.global.game.load.audio('knock', 'assets/knock.ogg');
 
         }
 
@@ -131,96 +133,96 @@
 
         function create () {
 
-            var background = game.add.sprite(game.world.centerX, game.world.centerY, 'imgCh1Background');
+            var background = window.parent.global.game.add.sprite(window.parent.global.game.world.centerX, window.parent.global.game.world.centerY, 'imgCh1Background');
 			background.anchor.setTo(0.5, 0.5);
 
-			clapping = game.add.audio('clapping');
-            falseSound = game.add.audio('falseError');
-            pageTurn = game.add.audio('pageTurn');
-            knock = game.add.audio('knock');
+			clapping = window.parent.global.game.add.audio('clapping');
+            falseSound = window.parent.global.game.add.audio('falseError');
+            pageTurn = window.parent.global.game.add.audio('pageTurn');
+            knock = window.parent.global.game.add.audio('knock');
 
-			instruction_1 = game.add.sprite(80, 170, 'imgStartAllSmall');
-			instruction_2 = game.add.sprite(390, 152, 'imgStartAsk');
-			instruction_3 = game.add.sprite(610, 180, 'imgStartTrophy');
+			instruction_1 = window.parent.global.game.add.sprite(80, 170, 'imgStartAllSmall');
+			instruction_2 = window.parent.global.game.add.sprite(390, 152, 'imgStartAsk');
+			instruction_3 = window.parent.global.game.add.sprite(610, 180, 'imgStartTrophy');
 
-			instruction_text_1 = game.add.text(130, 300 , "Merke dir was die\n Leute erzählen!", style);
-			instruction_text_2 = game.add.text(335, 300 , "Beantworte die Fragen\n richtig...", style);
-			instruction_text_3 = game.add.text(565, 300 , "... und das in möglichst\n kurzer Zeit.", style);
+			instruction_text_1 = window.parent.global.game.add.text(130, 300 , "Merke dir was die\n Leute erzählen!", style);
+			instruction_text_2 = window.parent.global.game.add.text(335, 300 , "Beantworte die Fragen\n richtig...", style);
+			instruction_text_3 = window.parent.global.game.add.text(565, 300 , "... und das in möglichst\n kurzer Zeit.", style);
 
-            startbutton = game.add.button(game.world.centerX-40, 450, 'buttonStart', startGame, 0, 1 , 0, 1);
+            startbutton = window.parent.global.game.add.button(window.parent.global.game.world.centerX-40, 450, 'buttonStart', startGame, 0, 1 , 0, 1);
             startbutton.onOverSound = knock;
 
-            solutionButton1 = game.add.button(0, 0, 'smallAnswerButton', checkSolution, this, 1 ,0, 1, 0);
+            solutionButton1 = window.parent.global.game.add.button(0, 0, 'smallAnswerButton', checkSolution, this, 1 ,0, 1, 0);
             solutionButton1.onOverSound = knock;
             solutionButton1.name = 1;
 	    	solutionButton1.answer = false;
 	    	solutionButton1.visible = false;
 
-	    	solutionButton2 = game.add.button(0, 0, 'smallAnswerButton', checkSolution, this, 1 ,0 , 1, 0);
+	    	solutionButton2 = window.parent.global.game.add.button(0, 0, 'smallAnswerButton', checkSolution, this, 1 ,0 , 1, 0);
 	    	solutionButton2.onOverSound = knock;
 	    	solutionButton2.name = 2;
 	    	solutionButton2.answer = false;
 	    	solutionButton2.visible = false;
 
-	    	solutionButton3 = game.add.button(0, 0, 'smallAnswerButton', checkSolution, this, 1 ,0, 1, 0);
+	    	solutionButton3 = window.parent.global.game.add.button(0, 0, 'smallAnswerButton', checkSolution, this, 1 ,0, 1, 0);
 	    	solutionButton3.onOverSound = knock;
 	    	solutionButton3.name = 3;
 	    	solutionButton3.answer = false;
 	    	solutionButton3.visible = false;
 
-	    	solutionButton4 = game.add.button(0, 0, 'smallAnswerButton', checkSolution, this ,1 ,0, 1, 0);
+	    	solutionButton4 = window.parent.global.game.add.button(0, 0, 'smallAnswerButton', checkSolution, this ,1 ,0, 1, 0);
 	    	solutionButton4.onOverSound = knock;
 	    	solutionButton4.name = 4;
 	    	solutionButton4.answer = false;
 	    	solutionButton4.visible = false;
 
-	    	solutionButton5 = game.add.button(0, 0, 'smallAnswerButton', checkSolution, this ,1 ,0, 1, 0);
+	    	solutionButton5 = window.parent.global.game.add.button(0, 0, 'smallAnswerButton', checkSolution, this ,1 ,0, 1, 0);
 	    	solutionButton5.onOverSound = knock;
 	    	solutionButton5.name = 5;
 	    	solutionButton5.answer = false;
 	    	solutionButton5.visible = false;
 
-	    	solutionButton6 = game.add.button(0, 0, 'smallAnswerButton', checkSolution, this ,1 ,0, 1, 0);
+	    	solutionButton6 = window.parent.global.game.add.button(0, 0, 'smallAnswerButton', checkSolution, this ,1 ,0, 1, 0);
 	    	solutionButton6.onOverSound = knock;
 	    	solutionButton6.name = 6;
 	    	solutionButton6.answer = false;
 	    	solutionButton6.visible = false;
 
 
-            text = game.add.text(game.world.centerX + 50, game.world.centerY - 200, "dasd", style);
+            text = window.parent.global.game.add.text(window.parent.global.game.world.centerX + 50, window.parent.global.game.world.centerY - 200, "dasd", style);
             text.visible = false;
 
-            questionsText = game.add.text(623, 20, "", style);
-            ph2QuestionText = game.add.text(200, 320, "", style);
-            ph2SolutionText = game.add.text(200, 400, "", style);
-            ph2SolutionText2 = game.add.text(200, 500, "", style);
+            questionsText = window.parent.global.game.add.text(623, 20, "", style);
+            ph2QuestionText = window.parent.global.game.add.text(200, 320, "", style);
+            ph2SolutionText = window.parent.global.game.add.text(200, 400, "", style);
+            ph2SolutionText2 = window.parent.global.game.add.text(200, 500, "", style);
 
 
-            timeLeftText = game.add.text(550, 25, "", style);
+            timeLeftText = window.parent.global.game.add.text(550, 25, "", style);
             timeLeftText.visible = false;
 
-			timeLeftTimer = game.time.create(false);
+			timeLeftTimer = window.parent.global.game.time.create(false);
 		   	timeLeftTimer.loop(1000, decTimeLeft, this);
 		   	timeLeftTimer.start();
 
-        	sascha = game.add.sprite(540, 125, 'imgSascha');
-        	marlene = game.add.sprite(125, 145, 'imgMarlene');
-			emmanuel = game.add.sprite(125, 145, 'imgEmmanuel');
-			jenny = game.add.sprite(540, 145, 'imgJenny');
-			marius = game.add.sprite(125, 145, 'imgMarius');
+        	sascha = window.parent.global.game.add.sprite(540, 125, 'imgSascha');
+        	marlene = window.parent.global.game.add.sprite(125, 145, 'imgMarlene');
+			emmanuel = window.parent.global.game.add.sprite(125, 145, 'imgEmmanuel');
+			jenny = window.parent.global.game.add.sprite(540, 145, 'imgJenny');
+			marius = window.parent.global.game.add.sprite(125, 145, 'imgMarius');
 
-			saschaHead = game.add.button(300, 400, 'imgSaschaHead', ph2CheckSolution, this,1 ,0, 1, 0);
+			saschaHead = window.parent.global.game.add.button(300, 400, 'imgSaschaHead', ph2CheckSolution, this,1 ,0, 1, 0);
 			saschaHead.name = 'sascha';
-        	marleneHead = game.add.button(200, 400, 'imgMarleneHead', ph2CheckSolution, this,1 ,0, 1, 0);
+        	marleneHead = window.parent.global.game.add.button(200, 400, 'imgMarleneHead', ph2CheckSolution, this,1 ,0, 1, 0);
         	marleneHead.name = 'marlene';
-			emmanuelHead = game.add.button(100, 400, 'imgEmmanuelHead', ph2CheckSolution, this,1 ,0, 1, 0);
+			emmanuelHead = window.parent.global.game.add.button(100, 400, 'imgEmmanuelHead', ph2CheckSolution, this,1 ,0, 1, 0);
 			emmanuelHead.name = 'emmanuel';
-			jennyHead = game.add.button(400, 400, 'imgJennyHead', ph2CheckSolution, this,1 ,0, 1, 0);
+			jennyHead = window.parent.global.game.add.button(400, 400, 'imgJennyHead', ph2CheckSolution, this,1 ,0, 1, 0);
 			jennyHead.name = 'jenny';
-			mariusHead = game.add.button(500, 400, 'imgMariusHead', ph2CheckSolution, this,1 ,0, 1, 0);
+			mariusHead = window.parent.global.game.add.button(500, 400, 'imgMariusHead', ph2CheckSolution, this,1 ,0, 1, 0);
 			mariusHead.name = 'marius';
 
-			table = game.add.sprite(30, 60, 'imgTable');
+			table = window.parent.global.game.add.sprite(30, 60, 'imgTable');
 			table.visible = false;
 
 			marius.visible = false;
@@ -241,28 +243,28 @@
 			saschaHead.input = false;
 
 
-			bubble1_1 = game.add.sprite(230, 60, 'bubble1');
+			bubble1_1 = window.parent.global.game.add.sprite(230, 60, 'bubble1');
 			bubble1_1.visible = false;
 
-			bubble1_2 = game.add.sprite(135, 60, 'bubble2');
+			bubble1_2 = window.parent.global.game.add.sprite(135, 60, 'bubble2');
 			bubble1_2.visible = false;
 
-			text_1 = game.add.text(315, 115, "Ich heiße Marius", style);
+			text_1 = window.parent.global.game.add.text(315, 115, "Ich heiße Marius", style);
             text_1.visible = false;
 
-			text_2 = game.add.text(195, 110, "Ich heiße Marius", style);
+			text_2 = window.parent.global.game.add.text(195, 110, "Ich heiße Marius", style);
             text_2.visible = false;
 
-            timerPic = game.add.sprite(457, 13, 'imgSmallTimer');
+            timerPic = window.parent.global.game.add.sprite(457, 13, 'imgSmallTimer');
 			timerPic.visible = false;
 
-            questionPic = game.add.sprite(582, 14, 'imgQuestion');
+            questionPic = window.parent.global.game.add.sprite(582, 14, 'imgQuestion');
 			questionPic.visible = false;
 
-			timeLeftText = game.add.text(500, 20, "", style);
+			timeLeftText = window.parent.global.game.add.text(500, 20, "", style);
             timeLeftText.visible = false;
 
-            endText = game.add.text(game.world.centerX, game.world.centerY , "GG", style);
+            endText = window.parent.global.game.add.text(window.parent.global.game.world.centerX, window.parent.global.game.world.centerY , "GG", style);
             endText.visible = false;
 
 			for (var i = 0; i < 5; ++i){
@@ -501,6 +503,7 @@
 		}
 
 		function startGame() {
+			console.log(window.parent.global.sound);
 			pageTurn.play();
 			var charNo = getNextCharInt();
 			tempCharNo = charNo;
@@ -516,9 +519,9 @@
 			instruction_text_2.visible = false;
 			instruction_text_3.visible = false;
 
-			smallTrophy = game.add.sprite(720, 15, 'imgSmallTrophy');
+			smallTrophy = window.parent.global.game.add.sprite(720, 15, 'imgSmallTrophy');
 
-			pointsText = game.add.text(750, 20, "", style);
+			pointsText = window.parent.global.game.add.text(750, 20, "", style);
             pointsText.setText(gamePoints);
             questionsText.visible = true;
 			questionPic.visible = true;
@@ -535,7 +538,7 @@
 			}
 
 
-	    	gameButton = game.add.button(650, 500, 'button1', gameForward, 0, 1 , 0, 1);
+	    	gameButton = window.parent.global.game.add.button(650, 500, 'button1', gameForward, 0, 1 , 0, 1);
 	    	gameButton.onOverSound = knock;
 	    	gameButton.input = false;
 
@@ -1123,10 +1126,10 @@
 	    	solutionButton1.attrNo = attrNo;
 	    	solutionButton1.input = true;
 	    	if(attrNo == 2){
-	    		text1 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[0][0], solButtonStyle);
+	    		text1 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[0][0], solButtonStyle);
 	    	}
 	    	else{
-            	text1 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[0][0].charAt(0), solButtonStyle);
+            	text1 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[0][0].charAt(0), solButtonStyle);
 	  		}
 
 	    	xPos = getSolButtonX(buttonArray[1][2], 0, charNo);
@@ -1139,10 +1142,10 @@
 	    	solutionButton2.attrNo = attrNo;
 	    	solutionButton2.input = true;
 	    	if(attrNo == 2){
-	    		text2 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[1][0], solButtonStyle);
+	    		text2 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[1][0], solButtonStyle);
 	    	}
 	    	else{
-	    		text2 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[1][0].charAt(0), solButtonStyle);
+	    		text2 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[1][0].charAt(0), solButtonStyle);
 	    	}
 
 	    	xPos = getSolButtonX(buttonArray[2][2], 0, charNo);
@@ -1155,10 +1158,10 @@
 	    	solutionButton3.attrNo = attrNo;
 	    	solutionButton3.input = true;
 	    	if(attrNo == 2){
-	    		text3 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[2][0], solButtonStyle);
+	    		text3 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[2][0], solButtonStyle);
 	    	}
 	    	else{
-	    		text3 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[2][0].charAt(0), solButtonStyle);
+	    		text3 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[2][0].charAt(0), solButtonStyle);
 	    	}
 
 			xPos = getSolButtonX(buttonArray[3][2], 0, charNo);
@@ -1171,10 +1174,10 @@
 	    	solutionButton4.attrNo = attrNo;
 	    	solutionButton4.input = true;
 	    	if(attrNo == 2){
-	    		text4 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[3][0], solButtonStyle);
+	    		text4 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[3][0], solButtonStyle);
 	    	}
 	    	else{
-	    		text4 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[3][0].charAt(0), solButtonStyle);
+	    		text4 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[3][0].charAt(0), solButtonStyle);
 	    	}
 
 			xPos = getSolButtonX(buttonArray[4][2], 0, charNo);
@@ -1187,10 +1190,10 @@
 	    	solutionButton5.attrNo = attrNo;
 	    	solutionButton5.input = true;
 	    	if(attrNo == 2){
-	    		text5 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[4][0], solButtonStyle);
+	    		text5 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[4][0], solButtonStyle);
 	    	}
 	    	else{
-	    		text5 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[4][0].charAt(0), solButtonStyle);
+	    		text5 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[4][0].charAt(0), solButtonStyle);
 	    	}
 
 			xPos = getSolButtonX(buttonArray[5][2], 0, charNo);
@@ -1203,10 +1206,10 @@
 	    	solutionButton6.attrNo = attrNo;
 	    	solutionButton6.input = true;
 	    	if(attrNo == 2){
-	    		text6 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[5][0], solButtonStyle);
+	    		text6 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[5][0], solButtonStyle);
 	    	}
 	    	else{
-	    		text6 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[5][0].charAt(0), solButtonStyle);
+	    		text6 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[5][0].charAt(0), solButtonStyle);
 	    	}
 
 	    	timeLeft = timeForAnswer;
@@ -1236,7 +1239,7 @@
 	    	solutionButton1.answer = true;
 	    	solutionButton1.answerNo = 2;
 	    	solutionButton1.input = true;
-	    	text1 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[0][0], solButtonStyle);
+	    	text1 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[0][0], solButtonStyle);
 
 	    	xPos = getSolButtonX(buttonArray[1][2], 1, charNo);
 			yPos = getSolButtonY(buttonArray[1][2], 1, charNo);
@@ -1250,7 +1253,7 @@
 	    	solutionButton2.answer = false;
 	    	solutionButton2.answerNo = 2;
 	    	solutionButton2.input = true;
-	    	text2 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[1][0], solButtonStyle);
+	    	text2 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[1][0], solButtonStyle);
 
 	    	xPos = getSolButtonX(buttonArray[2][2], 1, charNo);
 			yPos = getSolButtonY(buttonArray[2][2], 1, charNo);
@@ -1264,7 +1267,7 @@
 	    	solutionButton3.answer = false;
 	    	solutionButton3.answerNo = 2;
 	    	solutionButton3.input = true;
-	    	text3 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[2][0], solButtonStyle);
+	    	text3 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[2][0], solButtonStyle);
 
 			xPos = getSolButtonX(buttonArray[3][2], 1, charNo);
 			yPos = getSolButtonY(buttonArray[3][2], 1, charNo);
@@ -1278,7 +1281,7 @@
 	    	solutionButton4.answer = false;
 	    	solutionButton4.answerNo = 2;
 	    	solutionButton4.input = true;
-	    	text4 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[3][0], solButtonStyle);
+	    	text4 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[3][0], solButtonStyle);
 
 			xPos = getSolButtonX(buttonArray[4][2], 1, charNo);
 			yPos = getSolButtonY(buttonArray[4][2], 1, charNo);
@@ -1292,7 +1295,7 @@
 	    	solutionButton5.answer = false;
 	    	solutionButton5.answerNo = 2;
 	    	solutionButton5.input = true;
-	    	text5 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[4][0], solButtonStyle);
+	    	text5 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[4][0], solButtonStyle);
 
 			xPos = getSolButtonX(buttonArray[5][2], 1, charNo);
 			yPos = getSolButtonY(buttonArray[5][2], 1, charNo);
@@ -1306,7 +1309,7 @@
 	    	solutionButton6.answer = false;
 	    	solutionButton6.answerNo = 2;
 	    	solutionButton6.input = true;
-	    	text6 = game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[5][0], solButtonStyle);
+	    	text6 = window.parent.global.game.add.text(xPos + textXAdd, yPos + textYAdd, buttonArray[5][0], solButtonStyle);
 
 	    	timeLeft = timeForAnswer;
 	    	timeLeftTimer.resume();
@@ -1416,44 +1419,44 @@
 				switch(charNo)
 				{
 					case 0:
-						if(posNo == 1){return game.world.centerX + 135}
-						if(posNo == 2){return game.world.centerX + 135}
-						if(posNo == 3){return game.world.centerX + 35}
-						if(posNo == 4){return game.world.centerX + 35}
-						if(posNo == 5){return game.world.centerX - 65}
-						if(posNo == 6){return game.world.centerX - 65}
+						if(posNo == 1){return window.parent.global.game.world.centerX + 135}
+						if(posNo == 2){return window.parent.global.game.world.centerX + 135}
+						if(posNo == 3){return window.parent.global.game.world.centerX + 35}
+						if(posNo == 4){return window.parent.global.game.world.centerX + 35}
+						if(posNo == 5){return window.parent.global.game.world.centerX - 65}
+						if(posNo == 6){return window.parent.global.game.world.centerX - 65}
 						break;
 					case 1:
-						if(posNo == 1){return game.world.centerX + 135}
-						if(posNo == 2){return game.world.centerX + 135}
-						if(posNo == 3){return game.world.centerX + 35}
-						if(posNo == 4){return game.world.centerX + 35}
-						if(posNo == 5){return game.world.centerX - 65}
-						if(posNo == 6){return game.world.centerX - 65}
+						if(posNo == 1){return window.parent.global.game.world.centerX + 135}
+						if(posNo == 2){return window.parent.global.game.world.centerX + 135}
+						if(posNo == 3){return window.parent.global.game.world.centerX + 35}
+						if(posNo == 4){return window.parent.global.game.world.centerX + 35}
+						if(posNo == 5){return window.parent.global.game.world.centerX - 65}
+						if(posNo == 6){return window.parent.global.game.world.centerX - 65}
 						break;
 					case 2:
-						if(posNo == 1){return game.world.centerX - 25}
-						if(posNo == 2){return game.world.centerX - 25}
-						if(posNo == 3){return game.world.centerX - 125}
-						if(posNo == 4){return game.world.centerX - 125}
-						if(posNo == 5){return game.world.centerX - 225}
-						if(posNo == 6){return game.world.centerX - 225}
+						if(posNo == 1){return window.parent.global.game.world.centerX - 25}
+						if(posNo == 2){return window.parent.global.game.world.centerX - 25}
+						if(posNo == 3){return window.parent.global.game.world.centerX - 125}
+						if(posNo == 4){return window.parent.global.game.world.centerX - 125}
+						if(posNo == 5){return window.parent.global.game.world.centerX - 225}
+						if(posNo == 6){return window.parent.global.game.world.centerX - 225}
 						break;
 					case 3:
-						if(posNo == 1){return game.world.centerX - 25}
-						if(posNo == 2){return game.world.centerX - 25}
-						if(posNo == 3){return game.world.centerX - 125}
-						if(posNo == 4){return game.world.centerX - 125}
-						if(posNo == 5){return game.world.centerX - 225}
-						if(posNo == 6){return game.world.centerX - 225}
+						if(posNo == 1){return window.parent.global.game.world.centerX - 25}
+						if(posNo == 2){return window.parent.global.game.world.centerX - 25}
+						if(posNo == 3){return window.parent.global.game.world.centerX - 125}
+						if(posNo == 4){return window.parent.global.game.world.centerX - 125}
+						if(posNo == 5){return window.parent.global.game.world.centerX - 225}
+						if(posNo == 6){return window.parent.global.game.world.centerX - 225}
 						break;
 					case 4:
-						if(posNo == 1){return game.world.centerX + 135}
-						if(posNo == 2){return game.world.centerX + 135}
-						if(posNo == 3){return game.world.centerX + 35}
-						if(posNo == 4){return game.world.centerX + 35}
-						if(posNo == 5){return game.world.centerX - 65}
-						if(posNo == 6){return game.world.centerX - 65}
+						if(posNo == 1){return window.parent.global.game.world.centerX + 135}
+						if(posNo == 2){return window.parent.global.game.world.centerX + 135}
+						if(posNo == 3){return window.parent.global.game.world.centerX + 35}
+						if(posNo == 4){return window.parent.global.game.world.centerX + 35}
+						if(posNo == 5){return window.parent.global.game.world.centerX - 65}
+						if(posNo == 6){return window.parent.global.game.world.centerX - 65}
 						break;
 				}
 			}
@@ -1463,44 +1466,44 @@
 				switch(charNo)
 				{
 					case 0:
-						if(posNo == 1){return game.world.centerX - 140}
-						if(posNo == 2){return game.world.centerX - 140}
-						if(posNo == 3){return game.world.centerX - 140}
-						if(posNo == 4){return game.world.centerX + 120}
-						if(posNo == 5){return game.world.centerX + 120}
-						if(posNo == 6){return game.world.centerX + 120}
+						if(posNo == 1){return window.parent.global.game.world.centerX - 140}
+						if(posNo == 2){return window.parent.global.game.world.centerX - 140}
+						if(posNo == 3){return window.parent.global.game.world.centerX - 140}
+						if(posNo == 4){return window.parent.global.game.world.centerX + 120}
+						if(posNo == 5){return window.parent.global.game.world.centerX + 120}
+						if(posNo == 6){return window.parent.global.game.world.centerX + 120}
 						break;
 					case 1:
-						if(posNo == 1){return game.world.centerX - 140}
-						if(posNo == 2){return game.world.centerX - 140}
-						if(posNo == 3){return game.world.centerX - 140}
-						if(posNo == 4){return game.world.centerX + 120}
-						if(posNo == 5){return game.world.centerX + 120}
-						if(posNo == 6){return game.world.centerX + 120}
+						if(posNo == 1){return window.parent.global.game.world.centerX - 140}
+						if(posNo == 2){return window.parent.global.game.world.centerX - 140}
+						if(posNo == 3){return window.parent.global.game.world.centerX - 140}
+						if(posNo == 4){return window.parent.global.game.world.centerX + 120}
+						if(posNo == 5){return window.parent.global.game.world.centerX + 120}
+						if(posNo == 6){return window.parent.global.game.world.centerX + 120}
 						break;
 					case 2:
-						if(posNo == 1){return game.world.centerX - 385}
-						if(posNo == 2){return game.world.centerX - 385}
-						if(posNo == 3){return game.world.centerX - 385}
-						if(posNo == 4){return game.world.centerX - 125}
-						if(posNo == 5){return game.world.centerX - 125}
-						if(posNo == 6){return game.world.centerX - 125}
+						if(posNo == 1){return window.parent.global.game.world.centerX - 385}
+						if(posNo == 2){return window.parent.global.game.world.centerX - 385}
+						if(posNo == 3){return window.parent.global.game.world.centerX - 385}
+						if(posNo == 4){return window.parent.global.game.world.centerX - 125}
+						if(posNo == 5){return window.parent.global.game.world.centerX - 125}
+						if(posNo == 6){return window.parent.global.game.world.centerX - 125}
 						break;
 					case 3:
-						if(posNo == 1){return game.world.centerX - 385}
-						if(posNo == 2){return game.world.centerX - 385}
-						if(posNo == 3){return game.world.centerX - 385}
-						if(posNo == 4){return game.world.centerX - 125}
-						if(posNo == 5){return game.world.centerX - 125}
-						if(posNo == 6){return game.world.centerX - 125}
+						if(posNo == 1){return window.parent.global.game.world.centerX - 385}
+						if(posNo == 2){return window.parent.global.game.world.centerX - 385}
+						if(posNo == 3){return window.parent.global.game.world.centerX - 385}
+						if(posNo == 4){return window.parent.global.game.world.centerX - 125}
+						if(posNo == 5){return window.parent.global.game.world.centerX - 125}
+						if(posNo == 6){return window.parent.global.game.world.centerX - 125}
 						break;
 					case 4:
-						if(posNo == 1){return game.world.centerX - 140}
-						if(posNo == 2){return game.world.centerX - 140}
-						if(posNo == 3){return game.world.centerX - 140}
-						if(posNo == 4){return game.world.centerX + 120}
-						if(posNo == 5){return game.world.centerX + 120}
-						if(posNo == 6){return game.world.centerX + 120}
+						if(posNo == 1){return window.parent.global.game.world.centerX - 140}
+						if(posNo == 2){return window.parent.global.game.world.centerX - 140}
+						if(posNo == 3){return window.parent.global.game.world.centerX - 140}
+						if(posNo == 4){return window.parent.global.game.world.centerX + 120}
+						if(posNo == 5){return window.parent.global.game.world.centerX + 120}
+						if(posNo == 6){return window.parent.global.game.world.centerX + 120}
 						break;
 				}
 			}
@@ -2007,8 +2010,6 @@
     			gameForward();
     		}
     	}
-
-
     };
 
     </script>
