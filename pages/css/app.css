@@ -1,21 +1,15 @@
 .header-controls {
-  color: #fff;
-  background-color: #008000;
+  background: url(../images/menu.jpg);
   float: right;
-  width: 200px;
-}
-
-.header-title {
-  background-color: #00f;
-  float: left;
-  min-width: 500px;
-  margin: auto;
+  width: 769px;
 }
 
 .logo-container {
-  background-color: #ff0;
+  background-color: black;
+  background: url(../images/logo.jpg);
   float: left;
-  width: 300px;
+  width: 511px;
+  height:223px;
   overflow: visible;
 }
 
@@ -28,6 +22,7 @@
   opacity: 0.5;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
+  float:right;
 }
 
 .header-control-button:hover {
@@ -48,7 +43,6 @@
 }
 
 body {
-  height: 600px;
   margin-top: 50px;
   background: url("../images/bgblurred.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -59,16 +53,55 @@ body {
   background-size: cover;
 }
 
-.header-container {
-  height: 64px;
-  width: 1000px;
+.header-container 
+{
+   width: 1280px;
   margin: auto;
+    height:223px;
 }
 
-.page-container {
-  background-color: #f00;
-  height: 700px;
-  width: 1000px;
+#footer 
+{
+  height: 64px;
+  width: 1280px;
+  margin: auto;
+  background-color: black;
+}
+
+#left_arrow
+{
+  background-color: black;
+  background: url(../images/left_arrow.jpg);
+  float: left;
+  width: 240px;
+  height:176px;
+}
+
+#bar
+{
+  background-color: black;
+  background: url(../images/bar.jpg);
+  float: left;
+  width: 775px;
+  height:176px;
+}
+
+#right_arrow
+{
+  background-color: black;
+  background: url(../images/right_arrow.jpg) ;
+  float:left;
+  width: 265px;
+  height:176px;
+}
+
+
+.page-container 
+{
+  background-color: black;
+  background: url(../images/test.jpg) no-repeat;
+  width: 1280px;
+  height:561px;
   margin: auto;
   align: center;
 }
