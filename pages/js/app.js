@@ -23,6 +23,6 @@ $(document).ready(function(){
     });
 
     $("#abort").click(function(){
-        $('#game-frame').attr('src','levels/menu/index.html');
+        if($('#game-frame').attr('src') !== 'levels/menu/index.html') $('#game-frame').attr('src','levels/menu/index.html');
     })
 });
