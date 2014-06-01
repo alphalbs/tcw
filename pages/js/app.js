@@ -21,4 +21,8 @@ $(document).ready(function(){
             $("#soundOn").show();
         }
     });
+
+    $("#abort").click(function(){
+        $('#game-frame').attr('src','levels/menu/index.html');
+    })
 });

@@ -32,10 +32,6 @@
   filter: none;
 }
 
-#game_div {
-  background-color: #000;
-}
-
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
