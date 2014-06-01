@@ -70,9 +70,11 @@
 		var instruction_2;
 		var instruction_3;
 
-		var instruction_text_1
-		var instruction_text_2
-		var instruction_text_3
+		var instruction_text_1;
+		var instruction_text_2;
+		var instruction_text_3;
+		
+		var blabla;
 
 		var smallTrophy;
 		var timerPic;
@@ -128,11 +130,12 @@
         var timeLeft;
         var timeLeftTimer;
         var ph2questionCount = 0;
+		var intro = 0;
 
 
 
         function create () {
-
+			
             var background = window.parent.global.game.add.sprite(window.parent.global.game.world.centerX, window.parent.global.game.world.centerY, 'imgCh1Background');
 			background.anchor.setTo(0.5, 0.5);
 
@@ -144,10 +147,20 @@
 			instruction_1 = window.parent.global.game.add.sprite(80, 170, 'imgStartAllSmall');
 			instruction_2 = window.parent.global.game.add.sprite(390, 152, 'imgStartAsk');
 			instruction_3 = window.parent.global.game.add.sprite(610, 180, 'imgStartTrophy');
+			
+			blabla = window.parent.global.game.add.text(235, 200 , "Jeder von uns erzeugt Müll, ständig und überall.\n Doch je nachdem mit was wir unsere Zeit verbringen,\n können wir das auch selbst stark beeinflussen!\nVielen ist das leider gar nicht so sehr bewusst,\n wie viel man alleine durch ein bewussteres Umgehen\n mit der Umwelt bereits ändern kann.", style); 
 
 			instruction_text_1 = window.parent.global.game.add.text(130, 300 , "Merke dir was die\n Leute erzählen!", style);
 			instruction_text_2 = window.parent.global.game.add.text(335, 300 , "Beantworte die Fragen\n richtig...", style);
 			instruction_text_3 = window.parent.global.game.add.text(565, 300 , "... und das in möglichst\n kurzer Zeit.", style);
+			
+	    	instruction_1.visible = false;
+			instruction_2.visible = false;
+			instruction_3.visible = false;
+
+			instruction_text_1.visible = false;
+			instruction_text_2.visible = false;
+			instruction_text_3.visible = false;			
 
             startbutton = window.parent.global.game.add.button(window.parent.global.game.world.centerX-40, 450, 'buttonStart', startGame, 0, 1 , 0, 1);
             startbutton.onOverSound = knock;
@@ -502,8 +515,24 @@
 
 		}
 
-		function startGame() {
+		function startGame() 
+		{
 			pageTurn.play();
+			if(intro == 0)
+			{
+				blabla.visible = false;
+				instruction_1.visible = true;
+				instruction_2.visible = true;
+				instruction_3.visible = true;
+	
+				instruction_text_1.visible = true;
+				instruction_text_2.visible = true;
+				instruction_text_3.visible = true;
+				intro = 1;				
+			}
+			else
+			{
+			
 			var charNo = getNextCharInt();
 			tempCharNo = charNo;
 			tempCharCount = 1;
@@ -553,6 +582,7 @@
 				text_1.setText(attributeString);
 				text_2.visible = false;
 				text_1.visible = true;
+			}
 			}
     	}
 
