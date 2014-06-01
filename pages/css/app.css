@@ -113,11 +113,18 @@ body {
   align: center;
 }
 
+#left_middle
+{
+  width: 240px;
+  height: 560px;
+  background: url(../images/left_middle.jpg) no-repeat;
+  float:left;
+}
+
 iframe {
   width: 800px;
   height: 600px;
-  margin-left: 100px;
-  margin-top: 50px;
+  float:left;
 }
 
 .button {
