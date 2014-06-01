@@ -125,6 +125,7 @@ iframe {
   width: 800px;
   height: 600px;
   float:left;
+  margin-left:20px;
 }
 
 .button {
