@@ -23,6 +23,7 @@
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
   float:right;
+  margin: 10px;
 }
 
 .header-control-button:hover {
@@ -40,6 +41,12 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: inherit;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 body {
@@ -115,11 +122,5 @@ iframe {
 
 .button {
   cursor: pointer;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 /*# sourceMappingURL=app.css.map*/
