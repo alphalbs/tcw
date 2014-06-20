@@ -10,16 +10,16 @@ Ein Lernspiel zum Thema Mülltrennung und dem Kreislauf des Mülls im Rahmes ein
 - [node](http://nodejs.org/)
 
 ### Setup
-1. ```git clone https://github.com/alphalbs/tcw.git```
+1. `git clone https://github.com/alphalbs/tcw.git`
 2. install brunch and bower
-  + ```sudo npm install -g brunch```
-  + ```sudo npm install -g bower```
+  + `sudo npm install -g brunch`
+  + `sudo npm install -g bower`
 3. Run `bash -e script/bootstrap` in git root directory
 
 #### known issues
-+  ```/usr/bin/env: node: No such file or directory```
-  + often happens when installing with a packetmanager
-  + run ```sudo ln -s /usr/bin/nodejs /usr/bin/node```
++  `/usr/bin/env: node: No such file or directory`
+  + happens on recent debian and ubuntu installs since the node binary is called nodejs to give it a more succinct name
+  + install `nodejs-legacy` to get a symlink from nodejs to node
 
 ### Run brunch
 
