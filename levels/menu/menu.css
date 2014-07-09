@@ -1,0 +1,32 @@
+.menuButton {
+	min-height: 106px;
+	min-width: 109px;
+	position: absolute;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+#einkaufen {
+	top: 56px;
+	left: 332px;
+}
+
+#entsorgung {
+	top: 184px;
+	left: 527px;
+}
+
+#abholung {
+	top: 430px;
+	left: 464px;
+}
+
+#verarbeitung {
+	top: 433px;
+	left: 213px;
+}
+
+#recycling {
+	top: 193px;
+	left: 143px;
+}
