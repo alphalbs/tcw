@@ -492,6 +492,8 @@
 
     		var percentage = Math.floor(hiddenGamePoints / (plasticCount + restCount + bioCount + paperCount + glasCount + Math.floor(restCount/2) + Math.floor(restCount/4) + Math.floor(paperCount/4) ) * 100);
 
+    		percentage = percentage > 100 ? 100 : percentage; //percentage should not exceed 100% (happened once while testing, so just to make sure)
+
     		if(window.parent.global.score.lvl4 <= percentage) window.parent.global.score.lvl4 = percentage;
 
     		endText = window.parent.global.game.add.text(window.parent.global.game.world.centerX, window.parent.global.game.world.centerY , "GG", style);
