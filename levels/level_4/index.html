@@ -495,6 +495,7 @@
     		percentage = percentage > 100 ? 100 : percentage; //percentage should not exceed 100% (happened once while testing, so just to make sure)
 
     		if(window.parent.global.score.lvl4 <= percentage) window.parent.global.score.lvl4 = percentage;
+    		if(percentage >= 33) window.parent.global.level_unlocked = 5;
 
     		endText = window.parent.global.game.add.text(window.parent.global.game.world.centerX, window.parent.global.game.world.centerY , "GG", style);
             endText.setText('Glückwunsch!\nDu hast ' +  percentage + '% der Punkte erreicht.\nDu hast dir die Goldmedaille verdient!');
@@ -507,7 +508,6 @@
 
 
     	function quit(percentage){
-            if(percentage >= 33) window.parent.global.level_unlocked = 5;
             window.parent.$('#game-frame').attr('src','levels/menu/index.html');
     	}
 

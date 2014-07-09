@@ -45,6 +45,6 @@ $(document).ready(function(){
     global.score.lvl3 = 0;
     global.score.lvl4 = 0;
     global.score.lvl5 = 0;
-    global.score.max = 500;
+    global.score.max = 400; // 4 games available
 
 });
