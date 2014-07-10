@@ -1,0 +1,133 @@
+.header-controls {
+  background: url(../images/menu.jpg);
+  float: right;
+  width: 769px;
+}
+
+.logo-container {
+  background-color: black;
+  background: url(../images/logo.jpg);
+  float: left;
+  width: 511px;
+  height:223px;
+  overflow: visible;
+}
+
+.header-control-button {
+  -webkit-transition: opacity 0.23s;
+  -moz-transition: opacity 0.23s;
+  -o-transition: opacity 0.23s;
+  -ms-transition: opacity 0.23s;
+  transition: opacity 0.23s;
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  float:right;
+  margin: 10px;
+}
+
+.header-control-button:hover {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: inherit;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  margin-top: 50px;
+  background: url("../images/bgblurred.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+.header-container
+{
+   width: 1280px;
+  margin: auto;
+    height:223px;
+}
+
+#footer
+{
+  height: 64px;
+  width: 1280px;
+  margin: auto;
+}
+
+#left_arrow
+{
+  background: url(../images/left_arrow.jpg);
+  float: left;
+  width: 240px;
+  height:176px;
+}
+
+#bar
+{
+  background: url(../images/bar.jpg);
+  float: left;
+  width: 775px;
+  height:176px;
+}
+
+#right_arrow
+{
+  background: url(../images/right_arrow.jpg) ;
+  float:left;
+  width: 265px;
+  height:176px;
+}
+
+#progressbar {
+  height: 64px;
+  width: 512px;
+  margin: auto;
+  margin-top: 23px;
+}
+
+
+.page-container
+{
+  background-color: black;
+  background: url(../images/test.jpg) no-repeat;
+  width: 1280px;
+  height:561px;
+  margin: auto;
+  align: center;
+}
+
+#left_middle
+{
+  width: 240px;
+  height: 560px;
+  background: url(../images/left_middle.jpg) no-repeat;
+  float:left;
+}
+
+iframe {
+  width: 800px;
+  height: 600px;
+  float:left;
+  margin-left:20px;
+}
+
+.button {
+  cursor: pointer;
+}
+/*# sourceMappingURL=app.css.map*/

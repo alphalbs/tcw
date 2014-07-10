@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>kapitel 3</title>
+	<script type="text/javascript" src="../../js/phaser.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+
+window.parent.global.game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+function preload() {
+
+    window.parent.global.game.load.image('city', 'assets/city.png');
+    window.parent.global.game.load.image('ground', 'assets/street.png');
+    window.parent.global.game.load.image('muell', 'assets/muelltonne.png');
+    window.parent.global.game.load.image('papier', 'assets/papiertonne.png');
+    window.parent.global.game.load.image('plastik', 'assets/gelbetonne.png');
+    window.parent.global.game.load.image('loch', 'assets/loch.png');
+    window.parent.global.game.load.spritesheet('pw', 'assets/papierwagen.png', 70, 40);
+}
+
+var player;
+var streets;
+var holes;
+var cursors;
+var jumpButton;
+var muells;
+var papiers;
+var plastiks;
+var score = 0;
+var lives = 3;
+var scoreText;
+var livesText;
+var stateText;
+
+
+function create() {
+
+    window.parent.global.game.physics.startSystem(Phaser.Physics.ARCADE);
+    window.parent.global.game.add.sprite(0, 0, 'city');
+
+    streets = window.parent.global.game.add.group();
+
+    streets.enableBody = true;
+
+    var ground = streets.create(90, window.parent.global.game.world.height - 64, 'ground');
+
+    ground.scale.setTo(1.6, 2);
+    ground.body.immovable = true;
+
+    var ledge = streets.create(400, 220, 'ground');
+    ledge.body.immovable = true;
+
+    ledge = streets.create(-250, 450, 'ground');
+    ledge.body.immovable = true;
+
+    ledge = streets.create(320, 420, 'ground');
+    ledge.body.immovable = true;
+
+    ledge = streets.create(-180, 295, 'ground');
+    ledge.body.immovable = true;
+
+    holes = window.parent.global.game.add.group();
+    holes.enableBody = true;
+
+    var lücke = holes.create(0, window.parent.global.game.world.height - 20, 'loch');
+    lücke.scale.setTo(0.28,1);
+    lücke.body.immovable = true;
+
+    var lücke2 = holes.create(730, window.parent.global.game.world.height - 20, 'loch');
+    lücke2.scale.setTo(0.31,1);
+    lücke2.body.immovable = true;
+
+    player = window.parent.global.game.add.sprite(180, window.parent.global.game.world.height - 108, 'pw');
+
+    window.parent.global.game.physics.arcade.enable(player);
+
+    player.body.bounce.y = 0.1;
+    player.body.gravity.y = 350;
+    player.body.collideWorldBounds = true;
+
+    player.animations.add('left', [0,1,2,3], 4, true);
+    player.animations.add('right', [5,6,7,8], 4, true);
+
+
+    muells = window.parent.global.game.add.group();
+
+    createMuells();
+
+    papiers = window.parent.global.game.add.group();
+
+    createPapiers();
+
+    plastiks = window.parent.global.game.add.group();
+
+    createPlastiks();
+
+    scoreText = window.parent.global.game.add.text(640, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
+    livesText = window.parent.global.game.add.text(24, 16, 'Lives: 3', {fontSize: '32px', fill: '#000'});
+    stateText = window.parent.global.game.add.text( window.parent.global.game.world.centerX, window.parent.global.game.world.centerY, ' ', {fontSize: '32px', fill: '#000'});
+    stateText.anchor.setTo(0.5, 0.5);
+    stateText.visible =false;
+
+    cursors = window.parent.global.game.input.keyboard.createCursorKeys();
+    jumpButton = window.parent.global.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+}
+
+function createMuells(){
+    muells.enableBody = true;
+
+    var muell = muells.create(110, 255, 'muell');
+    var muell2 = muells.create(400, 381, 'muell');
+    var muell3 = muells.create(600, 182, 'muell');
+}
+
+function createPapiers() {
+    papiers.enableBody = true;
+
+    var papier = papiers.create(540, 185, 'papier');
+    var papier2 = papiers.create(630, 385, 'papier');
+    var papier3 = papiers.create(50, 415, 'papier');
+}
+
+function createPlastiks(){
+    plastiks.enableBody = true;
+
+    var plastik = plastiks.create ( 20, 410, 'plastik');
+    var plastik2 = plastiks.create (530, 381, 'plastik');
+    var plastik3 = plastiks.create (160, 255, 'plastik');
+
+}
+
+
+function update() {
+    window.parent.global.game.physics.arcade.collide(player, streets);
+    window.parent.global.game.physics.arcade.collide(player, holes, restart, null, this);
+
+    window.parent.global.game.physics.arcade.overlap(player, muells, collectMuell, null, this);
+    window.parent.global.game.physics.arcade.overlap(player, papiers, collectPapier, null, this);
+    window.parent.global.game.physics.arcade.overlap(player, plastiks, collectPlastik, null, this);
+
+    player.body.velocity.x = 0;
+
+    if (cursors.left.isDown)
+    {
+        //  Move to the left
+        player.body.velocity.x = -100;
+
+        player.animations.play('left');
+    }
+    else if (cursors.right.isDown)
+    {
+        //  Move to the right
+        player.body.velocity.x = 100;
+
+        player.animations.play('right');
+    }
+    else
+    {
+        player.animations.stop();
+        player.frame = 4;
+    }
+    if (jumpButton.isDown && player.body.touching.down)
+    {
+        player.body.velocity.y = -300;
+    }
+}
+
+function collectMuell (player, muell) {
+
+    muell.kill();
+
+    score -= 10;
+    scoreText.text = 'Score: ' + score;
+
+     if (score < 0)
+    {
+     negativScore();
+    }
+
+}
+
+function collectPapier (player, papier) {
+
+    papier.kill();
+
+    score += 20;
+    scoreText.text = ' Score: ' + score;
+
+   if (papiers.countLiving() == 0)
+    {
+        //score -=60;
+        window.parent.global.score.lvl3_temp += score;
+
+        papiers.callAll('kill',this);
+
+        player.kill();
+        stateText.text=" You Won, Click Next Level!";
+        stateText.visible = true;
+    }
+
+}
+
+function collectPlastik (player, plastik){
+
+    plastik.kill();
+
+    score -= 10;
+    scoreText.text = ' Score: ' + score;
+
+    if (score < 0)
+    {
+     negativScore();
+    }
+
+}
+
+function negativScore () {
+
+    lives --;
+    livesText.text = 'Lives: ' + lives;
+
+    if (lives === 0)
+    {
+        player.kill();
+
+        muells.callAll('kill');
+        papiers.callAll('kill');
+        plastiks.callAll('kill');
+
+
+        stateText.text= '   Game Over!\n  Click Restart';
+        stateText.visible = true;
+
+    }
+}
+
+function restart() {
+    lives = 0;
+    livesText.text = 'Lives: ' + lives;
+    player.kill();
+    muells.callAll('kill');
+    papiers.callAll('kill');
+    plastiks.callAll('kill');
+    stateText.text = '  Game Over!\n Click Restart';
+    stateText.visible = true;
+
+}
+
+</script>
+<table width="800px">
+<tr><th align="center"><button onClick="window.location.href='lvl 2.html'">Restart</button></th>
+<th align="center"><button onClick="window.location.href='lvl 3.html'">Next Level</button></th></tr>
+</table>
+</body>
+</html>

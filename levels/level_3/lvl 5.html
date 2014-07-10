@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>kapitel 3</title>
+	<script type="text/javascript" src="../../js/phaser.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+
+window.parent.global.game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+function preload() {
+
+    window.parent.global.game.load.image('city', 'assets/city.png');
+    window.parent.global.game.load.image('ground', 'assets/street.png');
+    window.parent.global.game.load.image('muell', 'assets/muelltonne.png');
+    window.parent.global.game.load.image('bio', 'assets/biotonne.png');
+    window.parent.global.game.load.image('loch', 'assets/loch.png');
+    window.parent.global.game.load.spritesheet('bw', 'assets/biowagen.png', 70, 40);
+
+    window.parent.global.game.load.audio('knock', 'assets/knock.ogg');
+    window.parent.global.game.load.spritesheet('button2', 'assets/arrow_next.png',71,0);
+}
+
+var player;
+var streets;
+var holes;
+var cursors;
+var jumpButton;
+var muells;
+var biots;
+var score = 0;
+var lives = 3;
+var scoreText;
+var livesText;
+var stateText;
+
+
+function create() {
+
+    window.parent.global.game.physics.startSystem(Phaser.Physics.ARCADE);
+    window.parent.global.game.add.sprite(0, 0, 'city');
+
+    knock = window.parent.global.game.add.audio('knock');
+
+    streets = window.parent.global.game.add.group();
+
+    streets.enableBody = true;
+
+   var ground = streets.create(380, window.parent.global.game.world.height - 48, 'ground');
+
+    ground.scale.setTo(0.1, 2);
+    ground.body.immovable = true;
+
+    var ledge = streets.create(350, 425, 'ground');
+    ledge.scale.setTo(0.5,1);
+    ledge.body.immovable = true;
+
+    var ledge2 = streets.create(555,550, 'ground');
+    ledge2.scale.setTo(0.2,1);
+    ledge2.body.immovable = true;
+
+    var ledge3 = streets.create(-180,375, 'ground');
+    ledge3.scale.setTo(0.8,1);
+    ledge3.body.immovable = true;
+
+    ledge3 = streets.create(250,225, 'ground');
+    ledge3.body.immovable = true;
+
+    var ledge4 = streets.create(-10,258, 'ground');
+    ledge4.scale.setTo(0.2,1);
+    ledge4.body.immovable = true;
+
+    ledge4 = streets.create (750,150, 'ground');
+    ledge4.body.immovable = true;
+
+    var ledge5 = streets.create(570,80, 'ground');
+    ledge5.scale.setTo(0.2,1);
+    ledge5.body.immovable = true;
+
+    var ledge6 = streets.create(390,80, 'ground');
+    ledge6.scale.setTo(0.2,1);
+    ledge6.body.immovable = true;
+
+    holes = window.parent.global.game.add.group();
+    holes.enableBody = true;
+
+    var lücke = holes.create(-1, window.parent.global.game.world.height - 20, 'loch');
+    lücke.scale.setTo(1.183,1);
+    lücke.body.immovable = true;
+
+    var lücke2 = holes.create (420, window.parent.global.game.world.height - 20, 'loch');
+    lücke2.scale.setTo(1.2,1);
+    lücke2.body.immovable = true;
+
+    player = window.parent.global.game.add.sprite(370, window.parent.global.game.world.height - 108, 'bw');
+
+    window.parent.global.game.physics.arcade.enable(player);
+
+    player.body.bounce.y = 0.1;
+    player.body.gravity.y = 350;
+    player.body.collideWorldBounds = true;
+
+    player.animations.add('left', [0,1,2,3], 4, true);
+    player.animations.add('right', [5,6,7,8], 4, true);
+
+
+    muells = window.parent.global.game.add.group();
+
+    createMuells();
+
+    biots = window.parent.global.game.add.group();
+
+    createBiots();
+
+    scoreText = window.parent.global.game.add.text(640, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
+    livesText = window.parent.global.game.add.text(24, 16, 'Lives: 3', {fontSize: '32px', fill: '#000'});
+    stateText = window.parent.global.game.add.text( window.parent.global.game.world.centerX, window.parent.global.game.world.centerY, ' ', {fontSize: '32px', fill: '#000'});
+    stateText.anchor.setTo(0.5, 0.5);
+    stateText.visible =false;
+
+    cursors = window.parent.global.game.input.keyboard.createCursorKeys();
+    jumpButton = window.parent.global.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+}
+
+function createMuells(){
+    muells.enableBody = true;
+
+    var muell = muells.create(230, 370, 'muell');
+    muell = muells.create (280, 186, 'muell');
+    muell = muells.create (720, 180, 'muell');
+}
+
+
+
+function createBiots() {
+    biots.enableBody = true;
+
+    var bio = biots.create (600, 512, 'bio');
+    bio = biots.create (20, 336, 'bio');
+    bio = biots.create (12, 219, 'bio');
+    bio = biots.create (415, 110, 'bio');
+    bio = biots.create (595, 110, 'bio');
+    bio = biots.create (770, 110, 'bio');
+    bio = biots.create (415, 40, 'bio');
+    bio = biots.create (595, 40, 'bio');
+}
+
+function update() {
+    window.parent.global.game.physics.arcade.collide(player, streets);
+    window.parent.global.game.physics.arcade.collide(player, holes, restart, null, this);
+
+    window.parent.global.game.physics.arcade.overlap(player, muells, collectMuell, null, this);
+    window.parent.global.game.physics.arcade.overlap(player, biots, collectBio, null, this);
+
+    player.body.velocity.x = 0;
+
+    if (cursors.left.isDown)
+    {
+        //  Move to the left
+        player.body.velocity.x = -100;
+
+        player.animations.play('left');
+    }
+    else if (cursors.right.isDown)
+    {
+        //  Move to the right
+        player.body.velocity.x = 100;
+
+        player.animations.play('right');
+    }
+    else
+    {
+        player.animations.stop();
+        player.frame = 4;
+    }
+    if (jumpButton.isDown && player.body.touching.down)
+    {
+        player.body.velocity.y = -300;
+    }
+}
+
+function collectMuell (player, muell) {
+
+    muell.kill();
+
+    score -= 10;
+    scoreText.text = 'Score: ' + score;
+
+     if (score < 0)
+    {
+     negativScore();
+    }
+
+}
+
+
+function collectBio (player, bio){
+
+    bio.kill();
+
+    score += 20;
+    scoreText.text = ' Score: ' + score;
+
+    if(biots.countLiving() == 0){
+
+        // score -=160;
+        window.parent.global.score.lvl3_temp += score;
+        max_score = 440;
+        percentage_score = Math.round((window.parent.global.score.lvl3_temp/max_score)*100);
+        if(window.parent.global.score.lvl3 <= percentage_score) window.parent.global.score.lvl3 = percentage_score;
+
+        if(window.parent.global.score.lvl3 >= 33) window.parent.global.level_unlocked = 4;
+
+        biots.callAll('kill',this);
+
+        player.kill();
+        stateText.text="\n\n Congratulations!!!\n        You Won!";
+        stateText.visible = true;
+
+        endButton = window.parent.global.game.add.button(650, 500, 'button2', quit, 0, 1 , 0, 1);
+        endButton.onOverSound = knock;
+        endButton.input = true;
+    }
+}
+
+function quit(percentage){
+    window.parent.$('#game-frame').attr('src','levels/menu/index.html');
+}
+
+function negativScore () {
+
+    lives --;
+    livesText.text = 'Lives: ' + lives;
+
+    if (lives === 0)
+    {
+        player.kill();
+
+        muells.callAll('kill');
+        biots.callAll('kill');
+
+
+        stateText.text= '   Game Over!\n  Click Restart';
+        stateText.visible = true;
+
+    }
+}
+
+function restart() {
+    lives = 0;
+    livesText.text = 'Lives: ' + lives;
+    scoreText.text = 'Score: 0'
+
+    player.kill();
+
+    muells.callAll('kill');
+    biots.callAll('kill');
+
+    stateText.text = '  Game Over!\n Click Restart';
+    stateText.visible = true;
+
+}
+
+</script>
+<table width="800px">
+<tr><th align="center"><button onClick="window.location.href='lvl 5.html'">Restart</button></th></tr>
+</table>
+</body>
+</html>
