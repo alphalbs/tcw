@@ -14,7 +14,6 @@
         function preload () {
         	var style = { font: "34px Segopr", fill: "#000000", align: "left" };
 
-        	window.parent.global.game.load.spritesheet('waterFlow', 'assets/waterFlow.png', 18, 72, 32);
 
 			window.parent.global.game.load.image('imgCh1Background', 'assets/chap1_background.jpg');
 			window.parent.global.game.load.spritesheet('button1', 'assets/start.png',87,0);
@@ -23,11 +22,32 @@
 
         	window.parent.global.game.load.image('furnance', 'assets/furnance.png');
         	window.parent.global.game.load.image('chimney', 'assets/chimney.png');
-        	window.parent.global.game.load.image('basin', 'assets/recBasin.png');
-        	window.parent.global.game.load.image('tap', 'assets/waterTap.png');
-        	window.parent.global.game.load.image('plasticBasin', 'assets/plasticBasin.png');
-			window.parent.global.game.load.image('glasBasin', 'assets/glasBasin.png');
-			window.parent.global.game.load.image('bioMuell', 'assets/bioMuell.png');
+
+        	window.parent.global.game.load.image('basin0', 'assets/paper0_4.png');
+        	window.parent.global.game.load.image('basin1', 'assets/paper1_4.png');
+        	window.parent.global.game.load.image('basin2', 'assets/paper2_4.png');
+        	window.parent.global.game.load.image('basin3', 'assets/paper3_4.png');
+        	window.parent.global.game.load.image('basin4', 'assets/paper4_4.png');
+
+        	window.parent.global.game.load.image('tap', 'assets/tap.png');
+
+			window.parent.global.game.load.image('plastic0', 'assets/plastic0_4.png');
+			window.parent.global.game.load.image('plastic1', 'assets/plastic1_4.png');
+			window.parent.global.game.load.image('plastic2', 'assets/plastic2_4.png');
+			window.parent.global.game.load.image('plastic3', 'assets/plastic3_4.png');
+			window.parent.global.game.load.image('plastic4', 'assets/plasticFull.png');
+
+			window.parent.global.game.load.image('glas0', 'assets/glas0_4.png');
+			window.parent.global.game.load.image('glas1', 'assets/glas1_4.png');
+			window.parent.global.game.load.image('glas2', 'assets/glas2_4.png');
+			window.parent.global.game.load.image('glas3', 'assets/glas3_4.png');
+			window.parent.global.game.load.image('glas4', 'assets/glasFull.png');
+
+			window.parent.global.game.load.image('bio0', 'assets/bio.png');
+			window.parent.global.game.load.image('bio1', 'assets/bio1_4.png');
+			window.parent.global.game.load.image('bio2', 'assets/bio2_4.png');
+			window.parent.global.game.load.image('bio3', 'assets/bio3_4.png');
+			window.parent.global.game.load.image('bio4', 'assets/bioFull.png');
 			//window.parent.global.game.load.image('specialTrash', 'assets/specialTrash.png');
 
         	window.parent.global.game.load.image('flask', 'assets/flasche.png');
@@ -76,8 +96,8 @@
         const CHIMNEYSIZE = 4;
 
         const BASINSIZE = 4;
-        const BASINXPOS = 100;
-        const BASINYPOS = 480;
+        const BASINXPOS = 80;
+        const BASINYPOS = 400;
 
         const PLASBASINSIZE = 4;
         const PLASBASINXPOS = 50;
@@ -130,7 +150,6 @@
         var bandSlots;
         var trashItems;
 
-        var waterflow;
 
         function create () {
             var background = window.parent.global.game.add.sprite(window.parent.global.game.world.centerX, window.parent.global.game.world.centerY, 'imgCh1Background');
@@ -149,12 +168,7 @@
 		   	introductionText1.visible = true;
 		   	introductionText1.setText("Was geschieht mit dem Müll, nachdem er abgeholt wurde?\n\nSieh dir die verschiedenen Stationen an und versuche herauszufinden\nwelcher Müll wohin kommt und was dort mit ihm geschieht!");
 
-			waterflow = window.parent.global.game.add.sprite(300, 200, 'waterFlow');
-			waterflow.animations.add('flow');
-			waterflow.visible = false;
-			//waterflow.animations.play('flow', 150, true);
-
-			rest = new Array("Asche","Hundehaufen","Kugelschreiber","Spielzeug");
+			rest = new Array("Hundehaufen","Kugelschreiber","Spielzeug");
 		    papier = new Array("Briefumschlaege","Karton","Zeitung");
 		    gp = new Array("Konserve","Plastikbeutel","Duschgel","Joghurtbecher","Tetrapack");
 		    glas = new Array("Weinflasche","Nutellaglas","Braunglas");
@@ -171,7 +185,7 @@
 
 			furnanceFillText = window.parent.global.game.add.text(FURNANCEXPOS + 200, FURNANCEYPOS + 80, furnanceFill, style);
 		   	furnanceFillText.visible = true;
-		   	furnanceFillText.setText(furnanceFill);
+		   	furnanceFillText.setText("Ofen");
 		   	furnanceFillText.visible = false;
 
 		   	chimney = window.parent.global.game.add.sprite(FURNANCEXPOS + 62, FURNANCEYPOS - 49, 'chimney');
@@ -182,43 +196,39 @@
 
 		   	chimneyFillText = window.parent.global.game.add.text(FURNANCEXPOS + 148, FURNANCEYPOS - 20, chimneyFill, style);
 		   	chimneyFillText.visible = true;
-		   	chimneyFillText.setText(chimneyFill);
+		   	chimneyFillText.setText("Filter");
 		   	chimneyFillText.visible = false;
 
-		    basin = window.parent.global.game.add.sprite(BASINXPOS, BASINYPOS, 'basin');
+ 			tap = window.parent.global.game.add.sprite(BASINXPOS, BASINYPOS, 'tap');
+		    tap.inputEnabled = true;
+		    tap.pointerOver = true;
+		    tap.events.onInputDown.add(tapClicked, this);
+		    tap.visible = false;
+		    
+		    basin = window.parent.global.game.add.sprite(BASINXPOS, BASINYPOS, 'basin0');
 		    basin.inputEnabled = true;
 		    basin.pointerOver = true;
 		    basin.events.onInputDown.add(basinClicked, this);
 		    basin.visible = false;
 
- 			basinPaperFillText = window.parent.global.game.add.text(BASINXPOS + 20, BASINYPOS + 30, basinPaperFill, style);
+ 			basinPaperFillText = window.parent.global.game.add.text(BASINXPOS , BASINYPOS + 80, basinPaperFill, style);
  			basinPaperFillText.visible = true;
- 			basinPaperFillText.setText(basinPaperFill);
+ 			basinPaperFillText.setText("Papier");
  			basinPaperFillText.visible = false;
 
-  			basinWaterFillText = window.parent.global.game.add.text(BASINXPOS + 65, BASINYPOS + 30, basinWaterFill, style);
- 			basinWaterFillText.visible = true;
- 			basinWaterFillText.setText(basinWaterFill);
- 			basinWaterFillText.visible = false;
 
- 			tap = window.parent.global.game.add.sprite(BASINXPOS + 70, BASINYPOS - 40, 'tap');
-		    tap.inputEnabled = true;
-		    tap.pointerOver = true;
-		    tap.events.onInputDown.add(tapClicked, this);
-		    tap.visible = false;
-
-		    plasticBasin = window.parent.global.game.add.sprite(PLASBASINXPOS, PLASBASINYPOS, 'plasticBasin');
+		    plasticBasin = window.parent.global.game.add.sprite(PLASBASINXPOS, PLASBASINYPOS, 'plastic0');
 		    plasticBasin.inputEnabled = true;
 		    plasticBasin.pointerOver = true;
 		    plasticBasin.events.onInputDown.add(plasticBasinClicked, this);
 		    plasticBasin.visible = false;
 
-		    plasticBasinFillText = window.parent.global.game.add.text(PLASBASINXPOS + 20, PLASBASINYPOS + 30, plasticBasinFill, style);
+		    plasticBasinFillText = window.parent.global.game.add.text(PLASBASINXPOS + 50, PLASBASINYPOS , plasticBasinFill, style);
  			plasticBasinFillText.visible = true;
- 			plasticBasinFillText.setText(plasticBasinFill);
+ 			plasticBasinFillText.setText("Plastik");
  			plasticBasinFillText.visible = false;
 
- 			glasBasin = window.parent.global.game.add.sprite(GLASBASINXPOS, GLASBASINYPOS, 'glasBasin');
+ 			glasBasin = window.parent.global.game.add.sprite(GLASBASINXPOS, GLASBASINYPOS, 'glas0');
 		    glasBasin.inputEnabled = true;
 		    glasBasin.pointerOver = true;
 		    glasBasin.events.onInputDown.add(glasBasinClicked, this);
@@ -226,10 +236,10 @@
 
 		    glasBasinFillText = window.parent.global.game.add.text(GLASBASINXPOS + 20, GLASBASINYPOS + 30, glasBasinFill, style);
  			glasBasinFillText.visible = true;
- 			glasBasinFillText.setText(glasBasinFill);
+ 			glasBasinFillText.setText("Glas");
  			glasBasinFillText.visible = false;
 
- 			bioBasin = window.parent.global.game.add.sprite(BIOBASINXPOS, BIOBASINYPOS, 'bioMuell');
+ 			bioBasin = window.parent.global.game.add.sprite(BIOBASINXPOS, BIOBASINYPOS, 'bio0');
 		    bioBasin.inputEnabled = true;
 		    bioBasin.pointerOver = true;
 		    bioBasin.events.onInputDown.add(bioBasinClicked, this);
@@ -237,7 +247,7 @@
 
 		    bioBasinFillText = window.parent.global.game.add.text(BIOBASINXPOS + 20, BIOBASINYPOS + 30, bioBasinFill, style);
  			bioBasinFillText.visible = true;
- 			bioBasinFillText.setText(bioBasinFill);
+ 			bioBasinFillText.setText("Bio");
  			bioBasinFillText.visible = false;
 
         	trashItems = window.parent.global.game.add.group();
@@ -268,14 +278,12 @@
 			gameButton.visible = false;
 			introductionText1.visible = false;
 
-			waterflow.visible = true;
 			furnance.visible = true;
 			furnanceFillText.visible = true;
 			chimney.visible = true;
 			chimneyFillText.visible = true;
 			basin.visible = true;
 			basinPaperFillText.visible = true;
-			basinWaterFillText.visible = true;
 		 	tap.visible = true;
 		 	plasticBasin.visible = true;
 		 	plasticBasinFillText.visible = true;
@@ -312,9 +320,9 @@
 				if(spriteObject.trashtype == "Restmuell" && furnanceFill < FURNANCESIZE){
 					addPoints(1);
 	    			furnanceFill++;
-	    			furnanceFillText.setText(furnanceFill);
+	    			furnanceFillText.setText("Ofen");
 	    			if(furnanceFill == FURNANCESIZE){
-	    				furnanceFillText.setText("OFEN VOLL!!");
+	    				furnanceFillText.setText("Voll!");
 	    			}
 					spriteObject.kill();
 				}
@@ -330,7 +338,23 @@
 				if(spriteObject.trashtype == "Papier" && basinPaperFill < BASINSIZE){
 					addPoints(1);
 	    			basinPaperFill++;
-	    			basinPaperFillText.setText(basinPaperFill);
+	    			if(basinPaperFill == 0){
+	    				basin.loadTexture('basin0');
+	    			}
+	    			else if(basinPaperFill == 1){
+	    				basin.loadTexture('basin1');
+	    			}
+	    			else if(basinPaperFill == 2){
+	    				basin.loadTexture('basin2');
+	    			}
+	    			else if(basinPaperFill == 3){
+	    				basin.loadTexture('basin3');
+	    			}
+	    			else if(basinPaperFill == 4){
+	    				basin.loadTexture('basin4');
+	    			}
+
+	    			basinPaperFillText.setText("Papier");
 	    			if(basinPaperFill == BASINSIZE){
 	    				basinPaperFillText.setText("VOLL!!");
 	    			}
@@ -347,7 +371,22 @@
 				if(spriteObject.trashtype == "Gelber Punkt" && plasticBasinFill < PLASBASINSIZE){
 					addPoints(1);
 	    			plasticBasinFill++;
-	    			plasticBasinFillText.setText(plasticBasinFill);
+	    		    if(plasticBasinFill == 0){
+	    				plasticBasin.loadTexture('glas0');
+	    			}
+	    			else if(plasticBasinFill == 1){
+	    				plasticBasin.loadTexture('glas1');
+	    			}
+	    			else if(plasticBasinFill == 2){
+	    				plasticBasin.loadTexture('glas2');
+	    			}
+	    			else if(plasticBasinFill == 3){
+	    				plasticBasin.loadTexture('glas3');
+	    			}
+	    			else if(plasticBasinFill == 4){
+	    				plasticBasin.loadTexture('glas4');
+	    			}
+	    			plasticBasinFillText.setText("Plastik");
 	    			if(plasticBasinFill == PLASBASINSIZE){
 	    				plasticBasinFillText.setText("VOLL!!");
 	    			}
@@ -364,7 +403,23 @@
 				if(spriteObject.trashtype == "Glas" && glasBasinFill < GLASBASINSIZE){
 					addPoints(1);
 	    			glasBasinFill++;
-	    			glasBasinFillText.setText(glasBasinFill);
+	    		   if(glasBasinFill == 0){
+	    				glasBasin.loadTexture('glas0');
+	    			}
+	    			else if(glasBasinFill == 1){
+	    				glasBasin.loadTexture('glas1');
+	    			}
+	    			else if(glasBasinFill == 2){
+	    				glasBasin.loadTexture('glas2');
+	    			}
+	    			else if(glasBasinFill == 3){
+	    				glasBasin.loadTexture('glas3');
+	    			}
+	    			else if(glasBasinFill == 4){
+	    				glasBasin.loadTexture('glas4');
+	    			}
+
+	    			glasBasinFillText.setText("Glas");
 	    			if(glasBasinFill == GLASBASINSIZE){
 	    				glasBasinFillText.setText("VOLL!!");
 	    			}
@@ -381,7 +436,23 @@
 				if(spriteObject.trashtype == "Bio" && bioBasinFill < BIOBASINSIZE){
 					addPoints(1);
 	    			bioBasinFill++;
-	    			bioBasinFillText.setText(bioBasinFill);
+	    			if(bioBasinFill == 0){
+	    				bioBasin.loadTexture('bio0');
+	    			}
+	    			else if(bioBasinFill == 1){
+	    				bioBasin.loadTexture('bio1');
+	    			}
+	    			else if(bioBasinFill == 2){
+	    				bioBasin.loadTexture('bio2');
+	    			}
+	    			else if(bioBasinFill == 3){
+	    				bioBasin.loadTexture('bio3');
+	    			}
+	    			else if(bioBasinFill == 4){
+	    				bioBasin.loadTexture('bio4');
+	    			}
+
+	    			bioBasinFillText.setText("Bio");
 	    			if(bioBasinFill == BIOBASINSIZE){
 	    				bioBasinFillText.setText("VOLL!!");
 	    			}
@@ -473,14 +544,12 @@
 
 			bandSlots.forEach(deleteSlot, this);
 
-			waterflow.visible = false;
 			furnance.visible = false;
 			furnanceFillText.visible = false;
 			chimney.visible = false;
 			chimneyFillText.visible = false;
 			basin.visible = false;
 			basinPaperFillText.visible = false;
-			basinWaterFillText.visible = false;
 		 	tap.visible = false;
 		 	plasticBasin.visible = false;
 		 	plasticBasinFillText.visible = false;
@@ -523,12 +592,12 @@
     		if(furnanceFill == FURNANCESIZE && chimneyFill + furnanceFill <= CHIMNEYSIZE){
       			chimneyFill = chimneyFill + furnanceFill;
     			furnanceFill = 0;
-    			furnanceFillText.setText(furnanceFill);
+    			furnanceFillText.setText("Ofen");
     			if(chimneyFill >= CHIMNEYSIZE){
     				chimneyFillText.setText("SMOK FILTERN!");
     			}
     			else{
-    				chimneyFillText.setText(chimneyFill);
+    				chimneyFillText.setText("Filter");
     			}
     			addPoints(1);
     		}
@@ -540,7 +609,7 @@
     	function chimneyClicked(){
     		if(chimneyFill == CHIMNEYSIZE){
     			chimneyFill = 0;
-    			chimneyFillText.setText(chimneyFill);
+    			chimneyFillText.setText("Filter");
 
     			addPoints(1);
     		}
@@ -550,9 +619,9 @@
     		if(basinPaperFill >= BASINSIZE && basinWaterFill >= 0){
     			addPoints(1);
     			basinPaperFill = 0;
-    			basinPaperFillText.setText(basinPaperFill);
+    			basin.loadTexture('basin0');
+    			basinPaperFillText.setText("Papier");
     			basinWaterFill = 0;
-    			basinWaterFillText.setText(basinWaterFill);
     		}
     		else{
 
@@ -562,7 +631,6 @@
     	function tapClicked(){
     		if(basinWaterFill < 1){
     			basinWaterFill++;
-    			basinWaterFillText.setText("VOLL");
     		}
     	}
 
@@ -570,7 +638,8 @@
     		if(plasticBasinFill >= PLASBASINSIZE){
     			addPoints(1);
     			plasticBasinFill = 0;
-    			plasticBasinFillText.setText(plasticBasinFill);
+    			plasticBasinFillText.setText("Plastik");
+    			plasticBasin.loadTexture('plastic0');
     		}
     	}
 
@@ -578,7 +647,8 @@
     		if(glasBasinFill >= GLASBASINSIZE){
     			addPoints(1);
     			glasBasinFill = 0;
-    			glasBasinFillText.setText(glasBasinFill);
+    			glasBasinFillText.setText("Glas");
+    			glasBasin.loadTexture('glas0');
     		}
     	}
 
@@ -586,14 +656,15 @@
     		if(bioBasinFill >= BIOBASINSIZE){
     			addPoints(1);
     			bioBasinFill = 0;
-    			bioBasinFillText.setText(bioBasinFill);
+    			bioBasinFillText.setText("Bio");
+    			bioBasin.loadTexture('bio0');
     		}
     	}
 
 		function createTrash() {
 		    var random1 = window.parent.global.game.rnd.integerInRange(0, 4);
 		    var trash;
-		    if(trashCount < 10){
+		    if(trashCount < 40){
 			    switch(random1) {
 			        case 0:
 			            var random3 = window.parent.global.game.rnd.integerInRange(0, rest.length - 1);
