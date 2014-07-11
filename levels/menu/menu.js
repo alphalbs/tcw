@@ -3,6 +3,10 @@ $(document).ready(function(){
 // tooltips
 	$('.menuButton').tooltip({
 		show: {
+			effect: "drop",
+			duration: 235
+		},
+		hide: {
 			effect: "drop"
 		},
 		position: {
