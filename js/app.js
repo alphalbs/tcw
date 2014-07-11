@@ -2,7 +2,10 @@ var global = {};
 global.score = {};
 
 $(document).ready(function(){
+// tooltips
+    $('.header-control-button').tooltip();
 
+// game
     global.game = null;
 
 // sound

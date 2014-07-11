@@ -6,6 +6,10 @@
 	cursor: pointer;
 }
 
+.menuButton:hover {
+	z-index: 10000;
+}
+
 #einkaufen {
 	top: 56px;
 	left: 332px;
