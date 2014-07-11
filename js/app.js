@@ -15,16 +15,16 @@ $(document).ready(function(){
         if(global.sound) {
             // turn sound off
             global.sound = false;
-            $("#soundOn").hide();
             $("#soundOff").show();
+            $("#soundOn").hide();
         }
         else {
             // turn sound on
             global.sound = true;
-            $("#soundOff").hide();
             $("#soundOn").show();
+            $("#soundOff").hide();
         }
-        if(global.game !== null) global.game.sound.setMute = !global.sound;
+        if(global.game !== null) global.game.sound.setMute(!global.sound);
     });
 
 // levels
