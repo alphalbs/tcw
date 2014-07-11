@@ -24,7 +24,7 @@ $(document).ready(function(){
             $("#soundOff").hide();
             $("#soundOn").show();
         }
-        if(global.game !== null) global.game.sound.setMute = !global.sound;
+        if(global.game !== null) global.game.sound._muteVolume = global.sound ? 1 : 0;
     });
 
 // levels
