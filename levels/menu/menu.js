@@ -15,33 +15,33 @@ $(document).ready(function(){
 	// holy guacamole is this ugly .. model, view, controller would be so nice
 	if(window.parent.global.level_unlocked == 1) {
 		$('body').attr('style','background:url(../../images/level1.jpg) no-repeat');
-		$('#einkaufen').tooltip("option", "content", "Medallie: " + getMedal("lvl1") + "<br>Punkte: " + getPoints("lvl1") + " von 100");
+		$('#einkaufen').tooltip("option", "content", "Medallie: " + getMedal("lvl1") + "<br>Punkte: " + getPoints("lvl1") + " / 100");
 	}
 	else if(window.parent.global.level_unlocked == 2) {
 		$('body').attr('style','background:url(../../images/level2.jpg) no-repeat');
-		$('#einkaufen').tooltip("option", "content", "Medallie: " + getMedal("lvl1") + "<br>Punkte: " + getPoints("lvl1") + " von 100");
-		$('#entsorgung').tooltip("option", "content", "Medallie: " + getMedal("lvl2") + "<br>Punkte: " + getPoints("lvl2") + " von 100");
+		$('#einkaufen').tooltip("option", "content", "Medallie: " + getMedal("lvl1") + "<br>Punkte: " + getPoints("lvl1") + " / 100");
+		$('#entsorgung').tooltip("option", "content", "Medallie: " + getMedal("lvl2") + "<br>Punkte: " + getPoints("lvl2") + " / 100");
 	}
 	else if(window.parent.global.level_unlocked == 3) {
 		$('body').attr('style','background:url(../../images/level3.jpg) no-repeat');
-		$('#einkaufen').tooltip("option", "content", "Medallie: " + getMedal("lvl1") + "<br>Punkte: " + getPoints("lvl1") + " von 100");
-		$('#entsorgung').tooltip("option", "content", "Medallie: " + getMedal("lvl2") + "<br>Punkte: " + getPoints("lvl2") + " von 100");
-		$('#abholung').tooltip("option", "content", "Medallie: " + getMedal("lvl3") + "<br>Punkte: " + getPoints("lvl3") + " von 100");
+		$('#einkaufen').tooltip("option", "content", "Medallie: " + getMedal("lvl1") + "<br>Punkte: " + getPoints("lvl1") + " / 100");
+		$('#entsorgung').tooltip("option", "content", "Medallie: " + getMedal("lvl2") + "<br>Punkte: " + getPoints("lvl2") + " / 100");
+		$('#abholung').tooltip("option", "content", "Medallie: " + getMedal("lvl3") + "<br>Punkte: " + getPoints("lvl3") + " / 100");
 	}
 	else if(window.parent.global.level_unlocked == 4) {
 		$('body').attr('style','background:url(../../images/level4.jpg) no-repeat');
-		$('#einkaufen').tooltip("option", "content", "Medallie: " + getMedal("lvl1") + "<br>Punkte: " + getPoints("lvl1") + " von 100");
-		$('#entsorgung').tooltip("option", "content", "Medallie: " + getMedal("lvl2") + "<br>Punkte: " + getPoints("lvl2") + " von 100");
-		$('#abholung').tooltip("option", "content", "Medallie: " + getMedal("lvl3") + "<br>Punkte: " + getPoints("lvl3") + " von 100");
-		$('#verarbeitung').tooltip("option", "content", "Medallie: " + getMedal("lvl4") + "<br>Punkte: " + getPoints("lvl4") + " von 100");
+		$('#einkaufen').tooltip("option", "content", "Medallie: " + getMedal("lvl1") + "<br>Punkte: " + getPoints("lvl1") + " / 100");
+		$('#entsorgung').tooltip("option", "content", "Medallie: " + getMedal("lvl2") + "<br>Punkte: " + getPoints("lvl2") + " / 100");
+		$('#abholung').tooltip("option", "content", "Medallie: " + getMedal("lvl3") + "<br>Punkte: " + getPoints("lvl3") + " / 100");
+		$('#verarbeitung').tooltip("option", "content", "Medallie: " + getMedal("lvl4") + "<br>Punkte: " + getPoints("lvl4") + " / 100");
 	}
 	else if(window.parent.global.level_unlocked == 5) {
 		$('body').attr('style','background:url(../../images/level5.jpg) no-repeat');
-		$('#einkaufen').tooltip("option", "content", "Medallie: " + getMedal("lvl1") + "<br>Punkte: " + getPoints("lvl1") + " von 100");
-		$('#entsorgung').tooltip("option", "content", "Medallie: " + getMedal("lvl2") + "<br>Punkte: " + getPoints("lvl2") + " von 100");
-		$('#abholung').tooltip("option", "content", "Medallie: " + getMedal("lvl3") + "<br>Punkte: " + getPoints("lvl3") + " von 100");
-		$('#verarbeitung').tooltip("option", "content", "Medallie: " + getMedal("lvl4") + "<br>Punkte: " + getPoints("lvl4") + " von 100");
-		$('#recycling').tooltip("option", "content", "Medallie: " + getMedal("lvl5") + "<br>Punkte: " + getPoints("lvl5") + " von 100");
+		$('#einkaufen').tooltip("option", "content", "Medallie: " + getMedal("lvl1") + "<br>Punkte: " + getPoints("lvl1") + " / 100");
+		$('#entsorgung').tooltip("option", "content", "Medallie: " + getMedal("lvl2") + "<br>Punkte: " + getPoints("lvl2") + " / 100");
+		$('#abholung').tooltip("option", "content", "Medallie: " + getMedal("lvl3") + "<br>Punkte: " + getPoints("lvl3") + " / 100");
+		$('#verarbeitung').tooltip("option", "content", "Medallie: " + getMedal("lvl4") + "<br>Punkte: " + getPoints("lvl4") + " / 100");
+		$('#recycling').tooltip("option", "content", "Medallie: " + getMedal("lvl5") + "<br>Punkte: " + getPoints("lvl5") + " / 100");
 	}
 
 // game
