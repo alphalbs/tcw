@@ -93,7 +93,8 @@ $(document).ready(function(){
        		Ok: function() {
        			$(this).dialog("close");
        		}
-       	}
+       	},
+       	width: 500
 	});
 
 	$("#lvl_unlock_alert").dialog({

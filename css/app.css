@@ -14,10 +14,10 @@
 }
 
 .header-control-button {
-  -webkit-transition: opacity 0.23s;
-  -moz-transition: opacity 0.23s;
-  -o-transition: opacity 0.23s;
-  -ms-transition: opacity 0.23s;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  -ms-transition: opacity 0.5s;
   transition: opacity 0.23s;
   opacity: 0.5;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
@@ -46,7 +46,7 @@
 }
 
 body {
-  margin-top: 50px;
+  margin: 0px;
   background: url("../images/bgblurred.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -58,9 +58,9 @@ body {
 
 .header-container
 {
-   width: 1280px;
+  width: 1280px;
   margin: auto;
-    height:223px;
+  height:223px;
 }
 
 #footer
@@ -130,4 +130,3 @@ iframe {
 .button {
   cursor: pointer;
 }
-/*# sourceMappingURL=app.css.map*/
