@@ -33,6 +33,8 @@ $(document).ready(function(){
         }
     });
 
+    //$("#background_sound").play();
+
 // levels
 
     global.level_unlocked = 1;
