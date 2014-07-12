@@ -1,0 +1,56 @@
+\documentclass[a4paper]{article}
+
+\usepackage{a4wide}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[parfill]{parskip}
+\pagestyle{fancy}
+\topmargin -5mm
+\headheight 20mm
+
+% include logo in document head
+\chead{\includegraphics[width=50mm]{logo.pdf}}
+
+% bottom line
+\renewcommand{\footrulewidth}{0.4pt}
+
+% change standard font
+\usepackage[T1]{fontenc}
+\newcommand{\changefont}[3]{
+\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
+
+\newcommand{\TOP}[1]{\item \textbf{#1}\par}
+
+\begin{document}
+\changefont{cmss}{m}{n} %computer modern sans serif
+
+\begin{center}
+\textbf{\Large Protokoll zum Gruppentreffen vom 12. April 2014}
+\end{center}
+
+\textbf{Beginn:} 15:00 Uhr, \textbf{Ende:} 16:45 Uhr\\
+\textbf{Anwesende:} Alex, Dennis, Philipp, Robert, Kilian
+
+\vspace{5mm}
+
+\begin{enumerate}
+
+\TOP{Namensfindung}
+Die Namensentscheidung fiel letzendlich auf \textit{AlphaLabs}. Alpha da wir Projektgruppe 1 sind.
+
+\TOP{Logodesign}
+Ein passendes Logo wird in den nächsten Tagen noch von Alex entworfen und dann in die Dokumentvorlage eingebunden.
+
+\TOP{Framework}
+Als Basistechnologie legen wir uns HTML5, CSS und Javascript bereit. Auf genauere Details und passende Frameworks (beispielsweise Pixi.js\footnote{http://www.pixijs.com/} oder Phaser\footnote{http://phaser.io/}) fällt die Entscheidung sobald die Konzeptidee ausgewählt ist.
+
+\TOP{Konzeptideen}
+Wir haben uns auf zwei mögliche Konzepte für das Spiel geeinigt. Ein Lernspiel zum Thema Mülltrennung und ein Geographieratespiel. Die Ausführungen hierzu sind separat.
+
+\end{enumerate}
+
+
+
+\end{document}

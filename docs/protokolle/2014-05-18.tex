@@ -1,0 +1,97 @@
+\documentclass[a4paper]{article}
+
+\usepackage{a4wide}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[parfill]{parskip}
+\usepackage{color}
+
+% fuer "deko-elemente"
+\pagestyle{fancy}
+
+% we needs moar platz
+\topmargin -5mm
+\headheight 20mm
+
+% include logo in document head
+\chead{\includegraphics[width=50mm]{logo.pdf}}
+
+% seitenzahl entfernen
+\cfoot{}
+
+% footer content
+\lfoot{\small{AlphaLabs}}
+\rfoot{\tiny{Alexander Drangmeister, Dennis Esders, Philipp Heisig, Robert Baruck, Stephan Wilde, Kilian Költzsch}}
+
+% headrule
+\renewcommand\headrule{
+\vspace{3mm}
+\footrule
+}
+
+% footrule
+\renewcommand\footnoterule{\rule{\linewidth}{0pt}}
+
+% change standard font
+\usepackage[T1]{fontenc}
+\newcommand{\changefont}[3]{
+\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
+
+% Tagesordnungspunkt Item
+\newcommand{\TOP}[1]{\item \textbf{#1}\par}
+
+
+
+\begin{document}
+\changefont{cmss}{m}{n} %computer modern sans serif
+
+%%%%%%%%%%%%%%%%%
+% HIER GEHT'S LOS
+%%%%%%%%%%%%%%%%%
+
+\begin{center}
+\textbf{\Large Protokoll zum Gruppentreffen vom 18. Mai 2014}
+\end{center}
+\vspace{3mm}
+
+\textbf{Beginn:} 15:00 Uhr, \textbf{Ende:} 17:00 Uhr\\
+\textbf{Anwesende:} Philipp, Robert, Dennis, Alex, Kilian
+
+\vspace{5mm}
+
+\begin{enumerate}
+
+
+\TOP{Implementation}
+
+Wir machten uns Gedanken zur anstehenden Implementation und kamen zu dem Entschluss, das erste Minispiel inklusive Kapitel fertig zu implementieren aber auch bereits mit dem zweiten erste Schritte zu machen. Hier sind ein Auffangspiel und ein Gedächtnisspiel mit einzelnen Charakteren geplant. Dies übernehmen jeweils zwei Teammitglieder.
+
+Eine weitere Person kümmert sich um die Zusammenstellung des HTML Wrappers für die einzelnen Minispiele. 
+
+Der Teilbereich Layoutüberblick, der Lerninhalte und Übersichten über das erste Kapitel beinhaltet, wird ebenfalls von einem Mitglied übernommen.
+
+So wird zur nächsten Abgabe ein funktionaler Prototyp mit einem voll funktionstüchtigem Kapitel bereitstehen.
+
+%%%%%%%%%%%%%%%%%%%
+% HIER IST'S VORBEI
+%%%%%%%%%%%%%%%%%%%
+
+\end{enumerate}
+
+
+% das ist herrlich kompliziert, aber es klappt! das ist alles was zaehlt! :D
+\definecolor{dgreen}{rgb}{0.549,0.776,0.247}
+\makeatletter
+\def\footrule{{
+  \vskip-\footruleskip\vskip-\footrulewidth
+  \color{\footrulecolor}
+  \hrule\@width\headwidth\@height
+  \footrulewidth\vskip\footruleskip
+}}
+\makeatother
+\renewcommand{\footrulewidth}{3pt}
+\newcommand{\footrulecolor}{dgreen}
+
+\end{document}
