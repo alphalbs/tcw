@@ -3,6 +3,10 @@ $(document).ready(function(){
 // tooltips
 	$('.menuButton').tooltip({
 		show: {
+			effect: "drop",
+			duration: 235
+		},
+		hide: {
 			effect: "drop"
 		},
 		position: {
@@ -13,6 +17,7 @@ $(document).ready(function(){
 // backgroud and tooltip updates
 
 	// holy guacamole is this ugly .. model, view, controller would be so nice
+	// http://gph.is/XGDixN
 	if(window.parent.global.level_unlocked == 1) {
 		$('body').attr('style','background:url(../../images/level1.jpg) no-repeat');
 		$('#einkaufen').tooltip("option", "content", "Medallie: " + getMedal("lvl1") + "<br>Punkte: " + getPoints("lvl1") + " / 100");
@@ -105,27 +110,27 @@ $(document).ready(function(){
 // buttons
 	$('#einkaufen').click(function(){
 		if(window.parent.global.level_unlocked >= 1) window.parent.$('#game-frame').attr('src','levels/level_1/index.html');
-	})
+	});
 
 	$('#entsorgung').click(function(){
 		if(window.parent.global.level_unlocked >= 2) window.parent.$('#game-frame').attr('src','levels/level_2/index.html');
 		else $("#lvl_unlock_alert").dialog("open");
-	})
+	});
 
 	$('#abholung').click(function(){
 		if(window.parent.global.level_unlocked >= 3) window.parent.$('#game-frame').attr('src', 'levels/level_3/lvl 1.html');
 		else $("#lvl_unlock_alert").dialog("open");
-	})
+	});
 
 	$('#verarbeitung').click(function(){
 		if(window.parent.global.level_unlocked >= 4) window.parent.$('#game-frame').attr('src', 'levels/level_4/index.html');
 		else $("#lvl_unlock_alert").dialog("open");
-	})
+	});
 
 	$('#recycling').click(function(){
 		if(window.parent.global.level_unlocked >= 5) $("#dlc_alert").dialog("open");
 		else $("#lvl_unlock_alert").dialog("open");
-	})
+	});
 
 
-})
+});
