@@ -14,20 +14,17 @@
 }
 
 .header-control-button {
-  -webkit-transition: opacity 0.23s;
-  -moz-transition: opacity 0.23s;
-  -o-transition: opacity 0.23s;
-  -ms-transition: opacity 0.23s;
-  transition: opacity 0.23s;
   opacity: 0.5;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
+
   float:right;
   margin: 10px;
 }
 
 .header-control-button:hover {
   opacity: 1;
+  color: rgb(23, 23, 23);
   -ms-filter: none;
   filter: none;
 }
@@ -46,7 +43,7 @@
 }
 
 body {
-  margin-top: 50px;
+  margin: 0px;
   background: url("../images/bgblurred.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -58,9 +55,9 @@ body {
 
 .header-container
 {
-   width: 1280px;
+  width: 1280px;
   margin: auto;
-    height:223px;
+  height:223px;
 }
 
 #footer
@@ -95,12 +92,35 @@ body {
 }
 
 #progressbar {
+  position: absolute;
   height: 64px;
   width: 512px;
   margin: auto;
-  margin-top: 23px;
+  margin-top: 42px;
+  margin-left: 155px;
+  overflow: hidden !important;
 }
 
+.progress-label {
+  position: absolute;
+  left: 38%;
+  top: 23%;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #AAA;
+  background: transparent !important;
+}
+
+.ui-progressbar-value {
+  background: url(../images/progressbar.png) no-repeat !important;
+  height: inherit !important;
+  border: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+
+.ui-widget {
+  border: 2px solid #000000 !important;
+}
 
 .page-container
 {
@@ -130,4 +150,3 @@ iframe {
 .button {
   cursor: pointer;
 }
-/*# sourceMappingURL=app.css.map*/
