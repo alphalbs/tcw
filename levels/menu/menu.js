@@ -38,6 +38,7 @@ $(document).ready(function(){
 		}
 	});
 
+
 // backgroud and tooltip updates
 
 	// holy guacamole is this ugly .. model, view, controller would be so nice
@@ -106,18 +107,43 @@ $(document).ready(function(){
        	}
 	});
 
+	$("#lvl2_intro").dialog({
+		autoOpen: false,
+		resizable: false,
+		width: 750,
+		buttons: {
+       		Start: function() {
+       			$(this).dialog("close");
+       			window.parent.$('#game-frame').attr('src','levels/level_2/index.html');
+       		}
+       	}
+	});
+
+	$("#lvl3_intro").dialog({
+		autoOpen: false,
+		resizable: false,
+		width: 750,
+		buttons: {
+       		Start: function() {
+       			$(this).dialog("close");
+       			window.parent.$('#game-frame').attr('src', 'levels/level_3/lvl 1.html');
+       		}
+       	}
+	});
+
 // buttons
 	$('#einkaufen').click(function(){
 		if(window.parent.global.level_unlocked >= 1) window.parent.$('#game-frame').attr('src','levels/level_1/index.html');
 	});
 
 	$('#entsorgung').click(function(){
-		if(window.parent.global.level_unlocked >= 2) window.parent.$('#game-frame').attr('src','levels/level_2/index.html');
+
+		if(window.parent.global.level_unlocked >= 2) $("#lvl2_intro").dialog("open");
 		else $("#lvl_unlock_alert").dialog("open");
 	});
 
 	$('#abholung').click(function(){
-		if(window.parent.global.level_unlocked >= 3) window.parent.$('#game-frame').attr('src', 'levels/level_3/lvl 1.html');
+		if(window.parent.global.level_unlocked >= 3) $("#lvl3_intro").dialog("open");
 		else $("#lvl_unlock_alert").dialog("open");
 	});
 

@@ -5,6 +5,20 @@ $(document).ready(function(){
 // tooltips
     $('.header-control-button').tooltip();
 
+// dialogs
+    $('#game_intro').dialog({
+        autoOpen: false,
+        resizable: false,
+        buttons: {
+            Ok: function() {
+                $(this).dialog("close");
+            }
+        },
+        width: 750
+    });
+
+    $('#game_intro').dialog("open");
+
 // game
     global.game = null;
 
