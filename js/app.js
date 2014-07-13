@@ -20,7 +20,7 @@ $(document).ready(function(){
     // xhr.send()
 
     var audio = new Audio();
-    audio.src = '/sounds/BOCrew_-_AROUND_THE_CORNER.mp3';
+    audio.src = '/tcw/sounds/BOCrew_-_AROUND_THE_CORNER.mp3';
     audio.controls = false;
     audio.autoplay = true;
     audio.loop = true;
