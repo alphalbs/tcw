@@ -8,18 +8,10 @@ $(document).ready(function(){
 // game
     global.game = null;
 
-// background sound
-    // xhr = new XMLHttpRequest()
-    // xhr.onreadystatechange = function() {
-    //     if (xhr.readyState == 4) {
-    //         startBackgroundMusic(buffer);
-    //     }
-    // }
-    // xhr.open('GET', "../sounds/BOCrew_-_AROUND_THE_CORNER.mp3", true)
-    // xhr.onload = playsound();
-    // xhr.send()
-
     var audio = new Audio();
+    audio.onerror = function() {
+        audio.src = '../sounds/BOCrew_-_AROUND_THE_CORNER.mp3'
+    }
     audio.src = '/tcw/sounds/BOCrew_-_AROUND_THE_CORNER.mp3';
     audio.controls = false;
     audio.autoplay = true;
