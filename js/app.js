@@ -1,5 +1,9 @@
 var global = {};
 global.score = {};
+var context = null;
+var gainNode = null;
+var sourceNode = null;
+var audio = null;
 
 $(document).ready(function(){
 // tooltips
@@ -22,7 +26,7 @@ $(document).ready(function(){
 // game
     global.game = null;
 
-    var audio = new Audio();
+    audio = new Audio();
     audio.onerror = function() {
         audio.src = '../sounds/BOCrew_-_AROUND_THE_CORNER.mp3'
     }
@@ -32,12 +36,12 @@ $(document).ready(function(){
     audio.loop = true;
     document.body.appendChild(audio);
 
-    var context = new AudioContext();
-    var gainNode = context.createGainNode();
-    gainNode.gain.value = .23; // or .5 ?
+    context = new AudioContext();
+    gainNode = context.createGainNode();
+    gainNode.gain.value = .05; //.23; // or .5 ?
     gainNode.connect(context.destination);
 
-    var sourceNode = context.createMediaElementSource(audio);
+    sourceNode = context.createMediaElementSource(audio);
     sourceNode.connect(gainNode);
     sourceNode.mediaElement.play();
 
