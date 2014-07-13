@@ -8,8 +8,25 @@ $(document).ready(function(){
 // game
     global.game = null;
 
-// sound
+// background sound
+    var audio = new Audio();
+    audio.src = '../sounds/BOCrew_-_AROUND_THE_CORNER.mp3';
+    audio.controls = false;
+    audio.autoplay = true;
+    audio.loop = true;
+    document.body.appendChild(audio);
 
+    var context = new AudioContext();
+    var gainNode = context.createGainNode();
+    gainNode.gain.value = .23; // or .5 ?
+    gainNode.connect(context.destination);
+
+    var sourceNode = context.createMediaElementSource(audio);
+    sourceNode.connect(gainNode);
+    sourceNode.mediaElement.play();
+
+
+// sound control
     global.sound = true;
 
     $("#soundOff").hide();
@@ -18,12 +35,14 @@ $(document).ready(function(){
         if(global.sound) {
             // turn sound off
             global.sound = false;
+            gainNode.gain.value = 0;
             $("#soundOn").hide();
             $("#soundOff").show();
         }
         else {
             // turn sound on
             global.sound = true;
+            gainNode.gain.value = .23;
             $("#soundOff").hide();
             $("#soundOn").show();
         }
@@ -33,7 +52,6 @@ $(document).ready(function(){
         }
     });
 
-    //$("#background_sound").play();
 
 // levels
 
