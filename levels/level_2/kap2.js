@@ -42,7 +42,6 @@ function preload() {
     window.parent.global.game.load.image('Karton', 'assets/muell/papier/karton.png');
     window.parent.global.game.load.image('Zeitung', 'assets/muell/papier/zeitung.png');
 
-    window.parent.global.game.load.image('Asche', 'assets/muell/rest/asche.png');
     window.parent.global.game.load.image('Hundehaufen', 'assets/muell/rest/hundehaufen.png');
     window.parent.global.game.load.image('Kugelschreiber', 'assets/muell/rest/kugelschreiber.png');
     window.parent.global.game.load.image('Spielzeug', 'assets/muell/rest/spielzeug.png');
@@ -81,7 +80,7 @@ function create() {
     trash_group = window.parent.global.game.add.group();
     trash_group.enableBody = true;
 
-    rest = new Array("Asche","Hundehaufen","Kugelschreiber","Spielzeug");
+    rest = new Array("Hundehaufen","Kugelschreiber","Spielzeug");
     papier = new Array("Briefumschlaege","Karton","Zeitung");
     gp = new Array("Konserve","Plastikbeutel","Duschgel","Joghurtbecher","Tetrapack");
     glas = new Array("Weinflasche","Nutelloglas","Glasflasche");
