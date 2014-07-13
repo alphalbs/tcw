@@ -1,0 +1,119 @@
+\documentclass[a4paper]{article}
+
+\usepackage{a4wide}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[parfill]{parskip}
+\usepackage{color}
+
+% fuer "deko-elemente"
+\pagestyle{fancy}
+
+% we needs moar platz
+\topmargin -5mm
+\headheight 73.10643pt
+
+% include logo in document head
+\chead{\includegraphics[width=50mm]{logo.pdf}}
+
+% seitenzahl entfernen
+\cfoot{}
+\rhead{}
+\lhead{}
+
+% footer content
+\lfoot{\small{AlphaLabs}}
+\rfoot{\small{Seite \thepage }}
+
+% headrule
+\renewcommand\headrule{
+\vspace{3mm}
+\footrule
+}
+
+% footrule
+\renewcommand\footnoterule{\rule{\linewidth}{0pt}}
+
+% change standard font
+\usepackage[T1]{fontenc}
+\newcommand{\changefont}[3]{
+\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
+
+% Tagesordnungspunkt Item
+\newcommand{\TOP}[1]{\item \textbf{#1}\par}
+
+\definecolor{dgreen}{rgb}{0.549,0.776,0.247}
+\makeatletter
+\def\footrule{{
+  \vskip-\footruleskip\vskip-\footrulewidth
+  \color{\footrulecolor}
+  \hrule\@width\headwidth\@height
+  \footrulewidth\vskip\footruleskip
+}}
+\makeatother
+\renewcommand{\footrulewidth}{3pt}
+\newcommand{\footrulecolor}{dgreen}
+
+\begin{document}
+\changefont{cmss}{m}{n} %computer modern sans serif
+
+\begin{center}
+\textbf{\Large The Circle of Waste - Statements der Gruppenmitglieder}
+\end{center}
+
+\vspace{5mm}
+
+%%%%%%%%%%%%%%%%%
+% HIER GEHT'S LOS
+%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}
+    \item \textbf{Gruppenmitglied Nr. 1}\\
+    \\
+    Das Projekt Lernspiel war eine interessante Aufgabenstellung, da sie bereits gewohnten Projekten aus dem Studium nicht wirklich entspricht und eine völlig andere Idee verfolgt. Hier ist weder Framework noch Idee vorgeschrieben, ein Spiel soll es sein und einen stark didaktischen Aspekt verfolgen. Das war sehr ungewohnt und hat auch bei der Ideenfindung innerhalb der Gruppe ein paar Probleme bereitet. Letztlich konnten wir uns jedoch auf ein sinnvolles Thema einigen und haben mit der Mülltrennung auch eine Thematik gefunden, die als Lernspiel doch relativ sinnvoll umgesetzt werden kann und einen doch eher wichtigen Punkt gerade für die Zielgruppe von Schulkindern anspricht.\\
+    \\
+    Durch die Aufteilung der Aufgaben der verschiedenen Aufgabenbereiche an einzelne Gruppenmitglieder oder Untergruppen hat die Gruppenarbeit als solche recht gut funktioniert. Es gab wenige Überschneidungen in den Aufgabenbereichen, was gerade der Aufteilung des Lernspiels in verschiedene Minispiele geschuldet war. Dadurch waren für uns auch nicht sonderlich viele Gruppentreffen nötig, in denen meist weiteres Vorgehen, nächste Aufgabenverteilung und aktueller Status besprochen wurden. Teilweise konnten diese dann auch komplett dezentral abgehalten werden. Ein Problem war jedoch, dass aufgrund der Gruppengröße von sechs Leuten die Motivation für einzelne etwas schwierig hervorzubringen war. So musste ein Gruppenmitglied des Öfteren an seinen Beitrag erinnert werden, was so mancher Frist etwas in die Quere kam. Letztlich hat laut Gruppenentscheidung der Beitrag an dieser Stelle jedoch auch gereicht.\\
+    \\
+    An der Betreuung durch den Tutor gibt es nichts auszusetzen. Von Andi kamen diverse hilfreiche Tipps und Hinweise, die die zumindest teilweise in die Gestaltung und Implementation des Spiels eingeflossen sind.\\
+    \\
+    Im Großen und Ganzen ein spannendes Projekt mit einer interessanten Zielstellung. Durch ein paar mehr Vorgaben (oder auch nur spezifischere Hinweise des Tutors) könnte man die Gruppenarbeit oder die Organisation dieser vielleicht ein wenig sauberer gestalten, es war aber auch so auf jeden Fall machbar.\\
+    \\
+
+    \item \textbf{Gruppenmitglied Nr. 2}\\
+    \\
+    Das Projekt startete mit einer interessanten Aufgabenstellung, vor allem, da die Wahl der verwendeten Werkzeuge recht frei gehalten war und ein Spiel programmiert werden sollte. Nach einiger Zeit wurde allerdings klar, dass der Aufwand für das Lernspiel über das Semester recht hoch einzuschätzen ist. Im Verhältnis gesehen zu dem Softwaretechnologie-Projekt gibt es deutlich zu wenige Leistungspunkte für das Modul. (Allgemein ist das 4te Semester für Medieninformatiker recht vollgepackt).\\
+    \\
+    Unsere Gruppenarbeit war in Ordnung und hat funktioniert. Da wir die Kapitel gut unter den Gruppenmitgliedern aufteilen konnten, mussten wir uns nicht allzu häufig treffen und konnten ohne große Überschneidungen arbeiten. Gegen Ende nahm der Aufwand erwartungsgemäß deutlich zu, allerdings waren leider nicht alle Gruppenmitglieder immer verfügbar. Und die Motivation von allen hat im Laufe des Semesters auch etwas abgenommen.\\
+    \\
+    An unserem Tutor (Andreas) und an seiner Betreuung ist nichts auszusetzen. Er hat uns immer alle Informationen und Vorgaben gegeben, an Abgaben erinnert und auch hilfreiche Vorschläge zu unserem Projekt gegeben.\\
+    \\
+
+    \item \textbf{Gruppenmitglieder Nr. 3 und 4}\\
+    \\
+    Die Gruppenmitglieder Nr. 3 und 4 standen zum Zeitpunkt der Abgabe leider nicht zur Verfügung, allerdings können wir von der vorherigen Zusammenarbeit und persönlichen Gesprächen davon ausgehen, dass sich ihre Ansichten größtenteils mit denen der anderen Gruppenmitglieder decken.
+    \\
+
+    \item \textbf{Gruppenmitglied Nr. 5}\\
+    \\
+    Ich schließe mich Inhaltlich den oben genannten Statements an. Des Weiteren kann noch hinzugefügt werden, dass unsere Kommunikation, bis auf einige persönliche Treffen, hauptsächlich über Github.com und Gitter.im stattgefunden hat, was einen kleinen Einblick in die verteilte Softwäreentwicklung ermöglichte. Leider haben der anfangs zu locker gehaltene Zeitplan und die Fülle an anderen Projekten in der Universität und Arbeit sowie die bevorstehende Prügunsperiode uns daran gehindert, alle Ideen umzusetzen. Auch die geforderte Evaluation des Lernspiels in der anvisierten Altersklasse war uns zeitlich und organisatorisch nicht möglich durchzuführen.
+    \\
+    Rückblickend kann gesagt werden, dass die Erstellung eines Lernspiels gegenüber normalen Spielen um einiges komplexer ist. Spielspaß und das Rüberbringen von Wissen zu kombinieren ist ein anspruchsvoller Designprozess.
+    \\
+
+    \item \textbf{Gruppenmitglied Nr. 6}\\
+    \\
+    \textit{fehlte zur Abgabezeit}
+    \\
+
+\end{enumerate}
+
+\textit{Die Reihenfolge der Gruppenmitglieder ist zufällig gewählt.}\\
+\textit{Wir haben uns entschlossen die Statements anonym abzugeben, daher wird auf eine Namenszuornung verzichtet.}
+
+%%%%%%%%%%%%%%%%%%%
+% HIER IST'S VORBEI
+%%%%%%%%%%%%%%%%%%%
+
+\end{document}
