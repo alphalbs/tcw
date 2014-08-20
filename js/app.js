@@ -37,7 +37,7 @@ $(document).ready(function(){
     document.body.appendChild(audio);
 
     context = new AudioContext();
-    gainNode = context.createGainNode();
+    gainNode = context.createGain();
     gainNode.gain.value = .05; //.23; // or .5 ?
     gainNode.connect(context.destination);
 
