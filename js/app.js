@@ -62,7 +62,7 @@ $(document).ready(function(){
         else {
             // turn sound on
             global.sound = true;
-            gainNode.gain.value = .23;
+            gainNode.gain.value = .05;
             $("#soundOff").hide();
             $("#soundOn").show();
         }
